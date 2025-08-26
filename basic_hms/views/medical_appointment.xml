@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="medical_appointment_form_view" model="ir.ui.view">
+        <field name="name">medical.appointment.form.view</field>
+        <field name="model">medical.appointment</field>
+        <field name="arch" type="xml">
+            <form string="Appointment">
+                <header>
+                    <button
+                            name="%(basic_hms.action_medical_appointments_therapy_invoice_wizard)d"
+                            string="Create Therapy Invoice" type="action" class="oe_highlight" icon="fa-inr" invisible="invoice_id"/>
+                    <button name="action_end_appointment" string="End Appointment" class="oe_highlight" type="object" icon="fa-stop" invisible="appointment_end"/>
+                    <field name="state" widget="statusbar"
+                        statusbar_visible="pending,done"
+                        />
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                    <button name="action_open_appointments" type="object"
+                        class="oe_stat_button" icon="fa-sticky-note-o"
+                        invisible="previous_appointment_count &lt; 1">
+                        <div class="o_stat_info">
+                            <field name="previous_appointment_count" class="o_stat_value"/>
+                            <span class="o_stat_text" invisible="previous_appointment_count &lt; 2">Previous OPDs</span>
+                            <span class="o_stat_text" invisible="previous_appointment_count &gt; 1">Previous OPDS</span>
+                        </div>
+                    </button>
+                    </div>
+                    <group>
+                        <div class="oe_left" style="width: 500px;">
+                            <div class="oe_title" style="width: 390px;">
+                                <label class="oe_edit_only" for="name"
+                                       string="Appointment #"/>
+                                <h1>
+                                    <field name="name" class="oe_inline"/>
+                                </h1>
+                                <label for="patient_id" class="oe_edit_only"/>
+                                <field name="patient_id"
+                                       context="{'appointment_id': 'appointment'}" options="{'no_create_edit': True,'no_create': True}"/>
+                            </div>
+                        </div>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="case_type" widget="radio"/>
+                            <field name="appointment_date"/>
+                            <field name="appointment_end"/>
+                            <field name="patient_status"/>
+                            <field name="no_invoice"/>
+                            <field name="validity_status"
+                                   readonly="1"/>
+                            <field name="appointment_validity_date"/>
+                            <field name="previous_appointment_date"/>
+                            <field name="previous_appointment_days"/>
+                        </group>
+                        <group>
+                            <field name="invoice_id"/>
+                            <field name="therapy_ids" widget="many2many_tags"/>
+                            <field name="duration"/>
+                            <field name="doctor_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Comments">
+                            <group>
+                                <field name="comments" nolabel="1" colspan="2"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+
+        </field>
+    </record>
+
+
+    <!-- General Calendar View -->
+    <record id="medical_appointment_calendar_view" model="ir.ui.view">
+        <field name="name">medical.appointment.calendar.view</field>
+        <field name="model">medical.appointment</field>
+        <field name="arch" type="xml">
+            <calendar string="Appointments" color="calendar_color"
+                      quick_create="False" date_start="appointment_date"
+                      event_limit="5" event_open_popup="true">
+                <field name="patient_id"/>
+                <field name="doctor_id"/>
+                <field name="therapy_names"/>
+                <field name="state"/>
+            </calendar>
+        </field>
+    </record>
+
+    <!-- Patient-Specific Calendar View -->
+    <record id="medical_appointment_patient_calendar_view" model="ir.ui.view">
+        <field name="name">medical.appointment.patient.calendar.view</field>
+        <field name="model">medical.appointment</field>
+        <field name="arch" type="xml">
+            <calendar string="Patient Attendance" color="calendar_color"
+                      quick_create="False" date_start="appointment_date"
+                      event_limit="10" event_open_popup="true">
+                <field name="patient_id"/>
+                <field name="therapy_names"/>
+                <field name="doctor_id"/>
+                <field name="state"/>
+            </calendar>
+        </field>
+    </record>
+
+    <!-- Therapy-Specific Calendar View -->
+    <record id="medical_appointment_therapy_calendar_view" model="ir.ui.view">
+        <field name="name">medical.appointment.therapy.calendar.view</field>
+        <field name="model">medical.appointment</field>
+        <field name="arch" type="xml">
+            <calendar string="Therapy Schedule" color="calendar_color"
+                      quick_create="False" date_start="appointment_date"
+                      event_limit="8" event_open_popup="true">
+                <field name="patient_id"/>
+                <field name="therapy_names"/>
+                <field name="doctor_id"/>
+                <field name="state"/>
+            </calendar>
+        </field>
+    </record>
+
+    <record id="medical_appointment_tree_view" model="ir.ui.view">
+        <field name="name">medical.appointment.tree.view</field>
+        <field name="model">medical.appointment</field>
+        <field name="arch" type="xml">
+            <list string="Appointment Information">
+                <field name="name"/>
+                <field name="patient_id"/>
+                <field name="patient_status"/>
+                <field name="urgency_level"/>
+                <field name="appointment_date"/>
+                <field name="appointment_end"/>
+                <field name="doctor_id"/>
+                <field name="therapy_names"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Appointment Search View -->
+    <record id="view_medical_appointment_search" model="ir.ui.view">
+        <field name="name">medical.appointment.search</field>
+        <field name="model">medical.appointment</field>
+        <field name="arch" type="xml">
+            <search string="Search Appointments">
+                <field name="name"/>
+                <field name="patient_id"/>
+                <field name="doctor_id"/>
+                <field name="therapy_ids"/>
+                <field name="appointment_date"/>
+                
+                <!-- Filters -->
+                <filter string="Completed" name="completed" domain="[('state', '=', 'done')]"/>
+                <filter string="Pending" name="pending" domain="[('state', '=', 'pending')]"/>
+                
+                <!-- Therapy Filters -->
+                <separator/>
+                <filter string="Speech Therapy" name="speech_therapy" domain="[('therapy_ids.code', '=', 'ST')]"/>
+                <filter string="Occupational Therapy" name="occupational_therapy" domain="[('therapy_ids.code', '=', 'OT')]"/>
+                <filter string="Physiotherapy" name="physiotherapy" domain="[('therapy_ids.code', '=', 'PT')]"/>
+                <filter string="Multiple Therapies" name="multiple_therapies" domain="[('therapy_ids', '!=', False)]"/>
+                
+                <!-- Group By -->
+                <group expand="0" string="Group By">
+                    <filter string="Patient" name="group_patient" context="{'group_by': 'patient_id'}"/>
+                    <filter string="Doctor" name="group_doctor" context="{'group_by': 'doctor_id'}"/>
+                    <filter string="Therapy" name="group_therapy" context="{'group_by': 'therapy_ids'}"/>
+                    <filter string="Status" name="group_status" context="{'group_by': 'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Main Appointments Action -->
+    <record id="action_medical_appointment" model="ir.actions.act_window">
+        <field name="name">Appointments</field>
+        <field name="res_model">medical.appointment</field>
+        <field name="binding_view_types">form</field>
+        <field name="view_mode">list,form,calendar</field>
+        <field name="search_view_id" ref="view_medical_appointment_search"/>
+    </record>
+
+    <!-- Patient-Specific Appointments Action -->
+    <record id="action_medical_appointment_patient" model="ir.actions.act_window">
+        <field name="name">Patient Attendance</field>
+        <field name="res_model">medical.appointment</field>
+        <field name="view_mode">calendar,list,form</field>
+        <field name="search_view_id" ref="view_medical_appointment_search"/>
+    </record>
+
+    <!-- Therapy-Specific Appointments Action -->
+    <record id="action_medical_appointment_therapy" model="ir.actions.act_window">
+        <field name="name">Therapy Schedule</field>
+        <field name="res_model">medical.appointment</field>
+        <field name="view_mode">calendar,list,form</field>
+        <field name="search_view_id" ref="view_medical_appointment_search"/>
+    </record>
+
+    <record id="action_view_appointment_id_new" model="ir.actions.act_window">
+        <field name="name">Appointments</field>
+        <field name="res_model">medical.appointment</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="domain">[('patient_id', '=', active_id)]</field>
+    </record>
+
+    <!-- Main Appointments Menu -->
+    <menuitem id="menu_medical_appointment" action="action_medical_appointment"
+        parent="basic_hms.menu_appointment" sequence="1"/>
+
+    <!-- Patient Attendance Menu -->
+    <menuitem id="menu_medical_appointment_patient" action="action_medical_appointment_patient"
+        parent="basic_hms.menu_appointment" sequence="2"/>
+
+    <!-- Therapy Schedule Menu -->
+    <menuitem id="menu_medical_appointment_therapy" action="action_medical_appointment_therapy"
+        parent="basic_hms.menu_appointment" sequence="3"/>
+
+</odoo>

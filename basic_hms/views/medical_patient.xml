@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <record id="medical_patients_form_view" model="ir.ui.view">
+            <field name="name">medical.patients.form.view</field>
+            <field name="model">medical.patient</field>
+            <field name="arch" type="xml">
+                <form string="Patient">
+                    <header>
+                        <button name="print_report" type="object"
+                            string="Print Patient Card" class="oe_highlight" />
+                        <button name="action_create_new_appointment" type="object"
+                            string="Create New Appointment" class="oe_highlight" icon="fa-calendar-plus-o" />
+                    </header>
+<!--                     <button class="oe_stat_button" type="object" icon="fa-calendar"
+                            name="action_open_appointments">
+                        <field string="Appointments" name="appointment_count" widget="statinfo"/>
+                    </button>
+                    <button class="oe_stat_button" type="object" icon="fa-hospital"
+                            name="action_open_inpatient">
+                        <field string="Inpatients" name="inpatient_count" widget="statinfo"/>
+                    </button> -->
+                    <sheet>
+                    <div class="oe_button_box" name="button_box">
+                    <button name="action_open_appointments" type="object"
+                        class="oe_stat_button" icon="fa-sticky-note-o"
+                        invisible="appointment_count &lt; 1">
+                        <div class="o_stat_info">
+                            <field name="appointment_count" class="o_stat_value"/>
+                            <span class="o_stat_text" invisible="appointment_count &lt; 2">OPDs</span>
+                            <span class="o_stat_text" invisible="appointment_count &gt; 1">OPDS</span>
+                        </div>
+                    </button>
+                    <button name="action_open_attendance_calendar" type="object"
+                        class="oe_stat_button" icon="fa-calendar"
+                        invisible="appointment_count &lt; 1">
+                        <div class="o_stat_info">
+                            <span class="o_stat_text">Attendance</span>
+                            <span class="o_stat_text">Calendar</span>
+                        </div>
+                    </button>
+                    <button name="action_create_new_appointment" type="object"
+                        class="oe_stat_button" icon="fa-calendar-plus-o">
+                        <div class="o_stat_info">
+                            <span class="o_stat_text">Create</span>
+                            <span class="o_stat_text">Appointment</span>
+                        </div>
+                    </button>
+                    </div>
+                      
+                            <field name="photo" nolabel="1"
+                                widget="image" class="oe_avatar" 
+                              />
+                            
+                            <div class="oe_title mb24">
+                                <div class="oe_edit_only">
+                                    <label for="patient_name" />
+                                </div>
+                                <h1>
+                                    <field name="patient_name"
+                                        default_focus="1" placeholder="Patient Name"
+                                        context="{'default_is_patient': 1,'default_is_person': 1}"
+                                         />
+                                </h1>
+                            </div>
+                        
+                        <group>
+                            <group>
+                                <field name="name" />
+                                <field name="date_of_birth" />
+                                <field name="mobile" placeholder="Mobile"/>
+                                <field name="email" placeholder="Email"/>
+                                <field name="referred_by_st" placeholder="Referred by"/>
+                                <field name="height" placeholder="Feet or Inches"/>
+                                <field name="weight" placeholder="in (kg)"/>
+                                <field name="patient_id"/>
+                            </group>
+
+                            <group>
+                                <field name="sex" />
+                                <field name="age"/>
+                                <field name="partner_address_id" invisible="1"/>
+                                <label for="partner_address_id" name="partner_address_id"/>
+                                <div class="o_address_format">
+                                    <field name="street" placeholder="Street..." class="o_address_street" />
+                                    <field name="street2" placeholder="Street 2..." class="o_address_street" />
+                                    <field name="city" placeholder="City" class="o_address_city" />
+                                    <field name="state_id" class="o_address_state" placeholder="State" options="{&quot;no_open&quot;: True}" />
+                                    <field name="zip_code" placeholder="ZIP" class="o_address_zip"/>
+                                    <field name="country_id" placeholder="Country" class="o_address_country"/>
+                                </div>
+                            </group>
+                        </group>
+
+                        <group> 
+                            <separator colspan="4"
+                                string="Patient Critical Information" />
+                            <newline />
+                            <field colspan="2" name="critical_info"
+                                nolabel="1" />
+                        </group>
+                        <notebook>
+                            <page string="General Information">
+                                <group string="Patient General Information">
+                                    <group>
+                                        <field name="blood_type" />
+                                        <field name="current_insurance_id" />
+                                    </group>
+                                    <group>
+                                        <field name="rh" />
+                                        <field name="receivable" />
+                                        <field name="primary_care_physician_id" />
+                                    </group>
+                                </group>
+
+                            </page>
+
+                            <page string="Diseases">
+                                <field name="patient_disease_ids"
+                                    nolabel="1" widget="section_and_note_one2many"/>
+                            </page>
+
+                            <page string="Medication">
+                                <field name="medication_ids" widget="section_and_note_one2many" >
+                                    <list>
+                                        <field name="medical_medicament_id" />
+                                        <field name="indication_pathology_id" />
+                                        <field name="start_treatment" />
+                                        <field name="end_treatment" />
+                                        <field name="is_active" />
+                                        <field name="doctor_physician_id" />
+                                    </list>
+                                </field>
+                            </page>
+                            <page string="Vaccinations">
+                              
+                                <field name="medical_vaccination_ids"
+                                    nolabel="1"  >
+                                    <list>
+                                        <field name="vaccine_product_id" />
+                                        <field name="dose" />
+                                        <field name="date" />
+                                        <field name="observations" />
+                                    </list>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <chatter/>
+                </form>
+
+            </field>
+        </record>
+
+        <record id="medical_patients_tree_view" model="ir.ui.view">
+            <field name="name">medical.patients.tree.view</field>
+            <field name="model">medical.patient</field>
+            <field name="arch" type="xml">
+                <list string="Patient Information">
+                    <field name="name" />
+                    <field name="patient_id" />
+                    <field name="mobile" />
+                    <field name="sex" />
+                    <field name="age" />
+                    <field name="city" />
+                    <field name="referred_by_st" />
+                    <field name="primary_care_physician_id" />
+                </list>
+            </field>
+        </record>
+
+        <record id="view_crm_case_patient_filter" model="ir.ui.view">
+            <field name="name">medical.patient.search.lead</field>
+            <field name="model">medical.patient</field>
+            <field name="arch" type="xml">
+                <search string="Search Patients">
+                    <field name="name" string="Patients" filter_domain="['|','|','|',('name', 'ilike', self),('patient_id', 'ilike', self), ('zip_code', 'ilike', self), ('mobile', 'ilike', self)]"/>
+                    <field name="mobile" string="Mobile"/>
+                    <!-- <separator />
+                    <filter string="My Leads"
+                            name="assigned_to_me"
+                            domain="[('user_id', '=', uid)]"
+                            help="Leads that are assigned to me"/>
+                    <filter string="Unassigned" name="unassigned_leads"
+                            domain="[('user_id','=', False), ('type', '=', 'lead')]"
+                            help="Leads that are not assigned"/>
+                    <separator />
+                    <filter string="Lost" name="lost"
+                            domain="['&amp;', ('probability', '=', 0), ('active', '=', False)]"/>
+                    <separator/>
+                    <filter string="Creation Date" name="filter_creation_date" date="create_date" default_period="month"/>
+                    <filter name="filter_date_closed" date="date_closed"/>
+                    <separator/>
+                    <separator/>
+                    <filter invisible="1" string="Late Activities" name="activities_overdue"
+                            domain="[('my_activity_date_deadline', '&lt;', context_today().strftime('%Y-%m-%d'))]"
+                            help="Show all opportunities for which the next action date is before today"/>
+                    <filter invisible="1" string="Today Activities" name="activities_today"
+                            domain="[('my_activity_date_deadline', '=', context_today().strftime('%Y-%m-%d'))]"/>
+                    <filter invisible="1" string="Future Activities" name="activities_upcoming_all"
+                            domain="[('my_activity_date_deadline', '&gt;', context_today().strftime('%Y-%m-%d'))]"/>
+                    <separator/>
+                    <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/> -->
+<!--                     <group expand="0" string="Group By">
+                        <filter string="Salesperson" name="salesperson" context="{'group_by':'user_id'}"/>
+                        <filter string="Sales Team" name="saleschannel" context="{'group_by':'team_id'}"/>
+                        <filter name="city" string="City" context="{'group_by': 'city'}"/>
+                        <filter string="Country" name="country" context="{'group_by':'country_id'}" />
+                        <filter string="Company" name="company" context="{'group_by':'company_id'}" groups="base.group_multi_company"/>
+                        <filter string="Campaign" name="compaign" domain="[]" context="{'group_by':'campaign_id'}"/>
+                        <filter string="Medium" name="medium" domain="[]" context="{'group_by':'medium_id'}"/>
+                        <filter string="Source" name="source" domain="[]" context="{'group_by':'source_id'}"/>
+                        <separator orientation="vertical" />
+                        <filter string="Creation Date" context="{'group_by':'create_date:month'}" name="month"/>
+                        <filter string="Closed Date" name="date_closed" context="{'group_by':'date_closed'}"/>
+                        <separator />
+                        <filter string="Properties" name="group_by_lead_properties" context="{'group_by':'lead_properties'}"/>
+                    </group> -->
+                </search>
+            </field>
+        </record>
+
+        <record id="action_medical_patient" model="ir.actions.act_window">
+            <field name="name">Patient List</field>
+            <field name="res_model">medical.patient</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">list,form</field>
+            <field name="search_view_id" ref="basic_hms.view_crm_case_patient_filter"/>
+        </record>
+
+        <menuitem id="menu_medical_patient_code" action="action_medical_patient"
+            parent="menu_patients" sequence="0" />
+
+        <record id="action_view_priscription_id2" model="ir.actions.act_window">
+            <field name="name">Prescription Orders</field>
+            <field name="res_model">medical.prescription.order</field>
+            <field name="view_mode">list</field>
+            <field name="domain">[('patient_id', '=', active_id)]</field>
+        </record>
+
+        <record id="action_psc_id" model="ir.actions.act_window">
+            <field name="name">PSC</field>
+            <field name="res_model">medical.patient.psc</field>
+            <field name="view_mode">list,form</field>
+            <field name="domain">[('patient_id', '=', active_id)]</field>
+        </record>
+
+        <record id="action_view_lab_id" model="ir.actions.act_window">
+            <field name="name">Lab Reports</field>
+            <field name="res_model">medical.lab</field>
+            <field name="view_mode">list,form</field>
+            <field name="domain">[('patient_id', '=', active_id)]</field>
+        </record>
+
+</odoo>

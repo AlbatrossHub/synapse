@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Therapy Invoice Wizard Form View -->
+    <record id="view_medical_appointments_therapy_invoice_wizard_form" model="ir.ui.view">
+        <field name="name">medical.appointments.therapy.invoice.wizard.form</field>
+        <field name="model">medical.appointments.therapy.invoice.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Create Therapy Invoice">
+                <div class="alert alert-info" role="alert">
+                    <strong>Confirmation Required</strong><br/>
+                    Do you want to create the invoice(s) based on the selected therapies?
+                    <br/><br/>
+                    <strong>Note:</strong> This will create invoice lines for each therapy type with automatic commission calculation.
+                </div>
+                <footer>
+                    <button name="create_therapy_invoice" string="Create Invoice" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Therapy Invoice Wizard Action -->
+    <record id="action_medical_appointments_therapy_invoice_wizard" model="ir.actions.act_window">
+        <field name="name">Create Therapy Invoice</field>
+        <field name="res_model">medical.appointments.therapy.invoice.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="model_medical_appointment"/>
+        <field name="binding_view_types">list</field>
+    </record>
+</odoo>

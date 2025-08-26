@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Speech Therapy -->
+        <record id="therapy_type_speech" model="therapy.type">
+            <field name="name">Speech Therapy</field>
+            <field name="code">ST</field>
+            <field name="product_id" ref="product_speech_therapy"/>
+            <field name="commission_type">percentage</field>
+            <field name="commission_value">15.0</field>
+            <field name="active">True</field>
+            <field name="notes">Speech therapy for communication disorders, language development, and speech impairments.</field>
+        </record>
+
+        <!-- Occupational Therapy -->
+        <record id="therapy_type_occupational" model="therapy.type">
+            <field name="name">Occupational Therapy</field>
+            <field name="code">OT</field>
+            <field name="product_id" ref="product_occupational_therapy"/>
+            <field name="commission_type">percentage</field>
+            <field name="commission_value">12.0</field>
+            <field name="active">True</field>
+            <field name="notes">Occupational therapy for daily living skills, motor skills, and rehabilitation.</field>
+        </record>
+
+        <!-- Physiotherapy -->
+        <record id="therapy_type_physio" model="therapy.type">
+            <field name="name">Physiotherapy</field>
+            <field name="code">PT</field>
+            <field name="product_id" ref="product_physiotherapy"/>
+            <field name="commission_type">fixed</field>
+            <field name="commission_value">500.0</field>
+            <field name="active">True</field>
+            <field name="notes">Physiotherapy for physical rehabilitation, pain management, and mobility improvement.</field>
+        </record>
+    </data>
+</odoo>
+
+

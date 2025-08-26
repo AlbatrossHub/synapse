@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+		<template id="report_patient_card_document">
+		       <t t-call="web.html_container">
+		           <t t-call="web.external_layout">
+		               <div class="page p-3">
+		                   
+		                   <!-- Patient Details -->
+		                       <div><strong>Date:</strong> <span t-field='o.today'/></div>
+		                       <div class="row mt16">
+		                           <div class="col"><strong>Patient ID:</strong> <span t-field='o.name' /></div>
+		                           <div class="col"><strong>Patient Name:</strong> <span t-field='o.patient_id.name' /></div>
+		                           <div class="col"><strong>Consulting Doctor:</strong> <span t-field='o.primary_care_physician_id' /></div>
+		                       </div>
+		                       <div class="row row mt16">
+		                           <div class="col"><strong>Age/Gender:</strong> <span t-field='o.age' /> / <span t-field='o.sex' /></div>
+		                           <div class="col"><strong>Place:</strong> <span t-field='o.city' /></div>
+		                           <div class="col"><strong>Contact:</strong> <span t-field='o.mobile' /></div>
+		                       </div>
+		                       <div class="row row mt16">
+		                           <div class="col"><strong>Occupation:</strong> <span t-field='o.occupation' /></div>
+		                           <div class="col"><strong>Weight:</strong> <span t-field='o.weight' /></div>
+		                           <div class="col"><strong>Referred by:</strong> <span t-field='o.referred_by_st' /></div>
+		                       </div>
+
+		                   <!-- Consent Section -->
+		                   <div class="mt-4 border p-2">
+		                       <p class="text-justify">
+		                           I have been fully informed of my diagnosis &amp; treatment options, and potential outcomes. 
+		                           I consent to the treatment plan as discussed with the doctor. <strong>Sign:</strong> ____________________________________________________________
+		                       </p>
+		                   </div>
+		                   
+		                   <!-- Complaints Section -->
+		                   <div class="mt-4">
+		                       <h5>Complaints:</h5>
+		                       <t t-foreach="range(10)" t-as="i">
+		                           <div style="border-bottom: 1px solid #FFFFFF; height: 25px;"></div>
+		                       </t>
+		                   </div>
+		                   
+		                   <!-- Investigations Section -->
+		                   <div class="mt-4">
+		                       <h5>Investigations:</h5>
+		                       <t t-foreach="range(3)" t-as="i">
+		                           <div style="border-bottom: 1px solid #FFFFFF; height: 25px;"></div>
+		                       </t>
+		                   </div>
+		                   
+		                   <!-- Advice Section -->
+		                   <div class="mt-4">
+		                       <h5>Advice:</h5>
+		                       <t t-foreach="range(8)" t-as="i">
+		                           <div style="border-bottom: 1px solid #FFFFFF; height: 25px;"></div>
+		                       </t>
+		                   </div>
+		                   
+		               </div>
+		           </t>
+		       </t>
+		   </template>
+
+		<template id="report_patient_card">
+			<t t-call="web.html_container">
+				<t t-foreach="docs" t-as="o">
+					<t t-call="basic_hms.report_patient_card_document"
+						t-lang="o.patient_id.lang" />
+				</t>
+			</t>
+		</template>
+</odoo>

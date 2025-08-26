@@ -1,0 +1,28 @@
+<odoo>
+    <data noupdate="0">
+
+        <!-- Sample Doctor as a Partner -->
+        <record id="partner_doctor_1" model="res.partner">
+            <field name="name">Dr. Alap Antani</field>
+        </record>
+
+        <!-- Medical Physician Record -->
+        <record id="medical_physician_1" model="medical.physician">
+            <field name="partner_id" ref="partner_doctor_1"/>
+            <field name="code">SMAD001</field>
+            <field name="info">Chief Medical Officer</field>
+        </record>
+        <!-- Sample Doctor as a Partner -->
+        <record id="partner_doctor_2" model="res.partner">
+            <field name="name">Dr. Pooja Shah</field>
+        </record>
+
+        <!-- Medical Physician Record -->
+        <record id="medical_physician_2" model="medical.physician">
+            <field name="partner_id" ref="partner_doctor_2"/>
+            <field name="code">SMAD002</field>
+            <field name="info">Physiotherpaist</field>
+        </record>
+
+    </data>
+</odoo>
