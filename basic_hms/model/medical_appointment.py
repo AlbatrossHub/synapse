@@ -57,7 +57,7 @@ class medical_appointment(models.Model):
     insurer_id = fields.Many2one('medical.insurance', 'Insurer')
     therapy_ids = fields.Many2many('therapy.type', string='Therapies', tracking=True)
     duration = fields.Integer('Duration (Mins)')
-    invoice_id = fields.Many2one("account.move", string="Invoice", readonly=1)
+    invoice_id = fields.Many2one("account.move", string="Invoice", readonly=True)
     state = fields.Selection([('pending','Pending'),('done','Completed')],string="State",default="pending", tracking=True)
     
     # Calendar and display fields
@@ -189,9 +189,9 @@ class medical_appointment(models.Model):
     def create(self, vals_list):
         today_str = datetime.today().strftime("%d%m%y")
         for vals in vals_list:
-            apt_id = self.env['ir.sequence' ].next_by_code('medical.appointment' ) or 'OPD'
-            vals['name'] = f"OPD{today_str}{apt_id}"
-            msg_body = 'Appointment created'
+            apt_id = self.env['ir.sequence' ].next_by_code('medical.appointment' ) or 'VISIT'
+            vals['name'] = f"VISIT{today_str}-{apt_id}"
+            msg_body = 'Visit created'
             for msg in self:
                 msg.message_post(body=msg_body)
         return super(medical_appointment, self).create(vals_list)

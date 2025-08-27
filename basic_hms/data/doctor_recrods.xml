@@ -3,7 +3,7 @@
 
         <!-- Sample Doctor as a Partner -->
         <record id="partner_doctor_1" model="res.partner">
-            <field name="name">Dr. Alap Antani</field>
+            <field name="name">Dr. Amola Khandwala</field>
         </record>
 
         <!-- Medical Physician Record -->

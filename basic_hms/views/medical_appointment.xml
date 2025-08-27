@@ -176,7 +176,7 @@
 
     <!-- Main Appointments Action -->
     <record id="action_medical_appointment" model="ir.actions.act_window">
-        <field name="name">Appointments</field>
+        <field name="name">Patient Visits</field>
         <field name="res_model">medical.appointment</field>
         <field name="binding_view_types">form</field>
         <field name="view_mode">list,form,calendar</field>
@@ -200,7 +200,7 @@
     </record>
 
     <record id="action_view_appointment_id_new" model="ir.actions.act_window">
-        <field name="name">Appointments</field>
+        <field name="name">Patient Visits</field>
         <field name="res_model">medical.appointment</field>
         <field name="view_mode">form</field>
         <field name="target">new</field>

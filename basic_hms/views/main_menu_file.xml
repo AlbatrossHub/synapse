@@ -24,7 +24,7 @@
             sequence="8" />
 
         <menuitem id="menu_appointment"
-            name='Patient OPD' parent="main_menu_hospital_management" sequence="1" />
+            name='Patient Visits' parent="main_menu_hospital_management" sequence="1" />
 
         <menuitem id="menu_medical_health_service"
             name='Medical Service' parent="main_menu_hospital_management"

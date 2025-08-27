@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Extend calendar event form view to show sync flag -->
+        <record id="calendar_event_view_form_inherit_sync" model="ir.ui.view">
+            <field name="name">calendar.event.form.inherit.sync</field>
+            <field name="model">calendar.event</field>
+            <field name="inherit_id" ref="calendar.view_calendar_event_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='partner_ids']" position="after">
+                    <field name="is_computed_as_medical_appointment" readonly="1"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
