@@ -19,6 +19,7 @@
     ],
     'data': [
         'security/ir.model.access.csv',
+        'data/sequence_data.xml',
         'views/therapy_type_views.xml',
         'views/medical_patient_views.xml',
     ],

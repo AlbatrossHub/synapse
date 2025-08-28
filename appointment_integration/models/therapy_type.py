@@ -10,3 +10,5 @@ class TherapyType(models.Model):
         string='Appointment Resource',
         help='Link this therapy type to a specific appointment resource for automatic mapping from calendar events'
     )
+
+

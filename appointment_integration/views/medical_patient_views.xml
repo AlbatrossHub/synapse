@@ -8,12 +8,18 @@
             <field name="inherit_id" ref="basic_hms.medical_patients_form_view"/>
             <field name="arch" type="xml">
                 <xpath expr="//header" position="inside">
-                    <button name="action_sync_appointments" 
-                            type="object"
-                            string="Sync Appointments" 
-                            class="oe_highlight" 
-                            icon="fa-calendar-check-o"
-                            invisible="not patient_id"/>
+                                    <button name="action_sync_appointments"
+                        type="object"
+                        string="Sync Appointments"
+                        class="oe_highlight"
+                        icon="fa-calendar-check-o"
+                        invisible="not patient_id"/>
+                <button name="action_create_consolidated_invoice"
+                        type="object"
+                        string="Create Consolidated Invoice"
+                        class="oe_highlight"
+                        icon="fa-file-invoice-o"
+                        invisible="not patient_id"/>
                 </xpath>
             </field>
         </record>

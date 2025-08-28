@@ -100,3 +100,148 @@ class MedicalPatient(models.Model):
                     therapy_ids.append(therapy.id)
         
         return therapy_ids
+
+    def action_create_consolidated_invoice(self):
+        """Create a consolidated invoice for all unpaid appointments of this patient"""
+        self.ensure_one()
+        
+        # Find all medical appointments for this patient without invoices
+        unpaid_appointments = self.env['medical.appointment'].search([
+            ('patient_id', '=', self.id),
+            ('invoice_id', '=', False),
+            ('state', '!=', 'cancelled')  # Exclude cancelled appointments
+        ])
+        
+        if not unpaid_appointments:
+            raise UserError(_('No unpaid appointments found for this patient.'))
+        
+        # Group therapies by product to consolidate quantities
+        therapy_consolidation = {}
+        
+        for appointment in unpaid_appointments:
+            for therapy in appointment.therapy_ids:
+                if not therapy.product_id:
+                    raise UserError(_('Therapy "%s" does not have an associated product. Please configure products for all therapies.') % therapy.name)
+                
+                product_id = therapy.product_id.id
+                if product_id not in therapy_consolidation:
+                    therapy_consolidation[product_id] = {
+                        'product': therapy.product_id,
+                        'quantity': 0,
+                        'therapy_type_id': therapy.id
+                    }
+                therapy_consolidation[product_id]['quantity'] += 1
+        
+        # Create the consolidated invoice
+        sale_journals = self.env['account.journal'].search([('type', '=', 'sale')])
+        if not sale_journals:
+            raise UserError(_('No sale journal found. Please configure a sale journal.'))
+        
+        # Get patient partner
+        if not self.patient_id:
+            raise UserError(_('No patient partner associated with this medical patient record.'))
+        
+        # Create invoice header
+        invoice_vals = {
+            'name': self.env['ir.sequence'].next_by_code('medical_consolidated_inv_seq'),
+            'invoice_origin': f'Consolidated Invoice - {self.name}',
+            'move_type': 'out_invoice',
+            'ref': False,
+            'partner_id': self.patient_id.id,
+            'partner_shipping_id': self.patient_id.id,
+            'currency_id': self.patient_id.currency_id.id,
+            'invoice_payment_term_id': False,
+            'fiscal_position_id': self.patient_id.property_account_position_id.id,
+            'team_id': False,
+            'invoice_date': fields.Date.today(),
+            'journal_id': sale_journals.id,
+            'state': 'draft',  # Keep as draft
+        }
+        
+        invoice = self.env['account.move'].create(invoice_vals)
+        
+        # Create invoice lines for consolidated therapies
+        for product_id, consolidation_data in therapy_consolidation.items():
+            product = consolidation_data['product']
+            quantity = consolidation_data['quantity']
+            therapy_type_id = consolidation_data['therapy_type_id']
+            
+            # Get account
+            invoice_line_account_id = (product.property_account_income_id.id or
+                                      product.categ_id.property_account_income_categ_id.id or
+                                      False)
+            
+            if not invoice_line_account_id:
+                raise UserError(
+                    _('There is no income account defined for product: "%s". You may have to install a chart of account from Accounting app, settings menu.') %
+                    (product.name,))
+            
+            # Get taxes
+            tax_ids = []
+            taxes = product.taxes_id.filtered(
+                lambda r: not product.company_id or r.company_id == product.company_id)
+            tax_ids = taxes.ids
+            
+            # Create invoice line
+            invoice_line_vals = {
+                'name': f"{product.name} (Consolidated - {quantity} sessions)",
+                'account_id': invoice_line_account_id,
+                'price_unit': product.list_price,
+                'quantity': quantity,
+                'product_uom_id': product.uom_id.id,
+                'product_id': product.id,
+                'tax_ids': [(6, 0, tax_ids)],
+                'therapy_type_id': therapy_type_id,
+            }
+            
+            invoice.write({'invoice_line_ids': [(0, 0, invoice_line_vals)]})
+        
+        # Update all related appointments with the new invoice
+        unpaid_appointments.write({
+            'invoice_id': invoice.id,
+            'is_invoiced': True
+        })
+        
+        # Create a clean log message with proper formatting
+        therapy_lines_text = ""
+        for product_id, consolidation_data in therapy_consolidation.items():
+            product = consolidation_data['product']
+            quantity = consolidation_data['quantity']
+            total_line_amount = product.list_price * quantity
+            therapy_lines_text += f"• {product.name}: {quantity} session(s) × {invoice.currency_id.symbol}{product.list_price:.2f} = {invoice.currency_id.symbol}{total_line_amount:.2f}\n"
+        
+        log_message = f"""
+Consolidated Invoice Created
+
+Successfully created consolidated invoice for {len(unpaid_appointments)} appointment(s) with {len(therapy_consolidation)} therapy line(s).
+
+Invoice Details:
+• Invoice Number: {invoice.name}
+• Total Amount: {invoice.currency_id.symbol}{invoice.amount_total:.2f}
+• Status: Draft
+
+Consolidated Therapy Lines:
+{therapy_lines_text}
+Invoice Reference: {invoice.name} (ID: {invoice.id})
+        """
+        
+        # Add the log note to the patient record
+        self.message_post(
+            body=log_message,
+            subject=_('Consolidated Invoice Created'),
+            message_type='notification'
+        )
+        
+        # Show success message
+        return {
+            'type': 'ir.actions.client',
+            'tag': 'display_notification',
+            'params': {
+                'title': _('Consolidated Invoice Created'),
+                'message': _('Successfully created consolidated invoice for %d appointment(s) with %d therapy line(s). Check the chatter for details.') % (
+                    len(unpaid_appointments), len(therapy_consolidation)
+                ),
+                'type': 'success',
+                'sticky': False,
+            }
+        }
