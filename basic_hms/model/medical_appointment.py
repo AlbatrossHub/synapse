@@ -24,7 +24,7 @@ class medical_appointment(models.Model):
             ('outpatient', 'Outpatient'), ('inpatient', 'Inpatient')],
             'Patient status', sort=False, default='outpatient')
     case_type = fields.Selection([('new', 'New'),
-            ('existing', 'Existing')],
+            ('revisit', 'Re-Visit')],
             'Case Type', default='new', tracking=True)
     patient_id = fields.Many2one('medical.patient', 'Patient',
                                  required=True, tracking=True)
