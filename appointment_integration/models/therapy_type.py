@@ -12,3 +12,4 @@ class TherapyType(models.Model):
     )
 
 
+
