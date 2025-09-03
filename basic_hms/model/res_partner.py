@@ -13,9 +13,9 @@ class res_partner(models.Model):
     is_doctor = fields.Boolean(string="Doctor")
     is_insurance_company = fields.Boolean(string='Insurance Company')
     is_pharmacy = fields.Boolean(string="Pharmacy")
-    patient_insurance_ids = fields.One2many('medical.insurance','patient_id')
+    # Removed patient_insurance_ids - model deleted
     is_institution = fields.Boolean('Institution')
-    company_insurance_ids = fields.One2many('medical.insurance','insurance_compnay_id','Insurance')
+    # Removed company_insurance_ids - model deleted
     reference = fields.Char('ID Number')
 
 

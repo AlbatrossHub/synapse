@@ -8,8 +8,8 @@ class medical_signs_and_sympotoms(models.Model):
     _description = 'medical signs and sympotoms'
     _rec_name = 'pathology_id'
 
-    patient_evaluation_id = fields.Many2one('medical.patient.evaluation','Patient Evaluation')
-    pathology_id = fields.Many2one('medical.pathology','Sign or Symptom')
+    # Removed patient_evaluation_id - model deleted
+    pathology_id = fields.Many2one('product.product','Sign or Symptom')
     sign_or_symptom = fields.Selection([
             ('sign', 'Sign'),
             ('symptom', 'Symptom'),

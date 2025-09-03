@@ -17,9 +17,7 @@ class medical_appointment(models.Model):
     institution_partner_id = fields.Many2one('res.partner',
             domain=[('is_institution', '=', True)],
             string='Health Center')
-    inpatient_registration_id = \
-        fields.Many2one('medical.inpatient.registration',
-                        string='Inpatient Registration', tracking=True)
+    # Removed inpatient_registration_id - model deleted
     patient_status = fields.Selection([('ambulatory', 'Ambulatory'),
             ('outpatient', 'Outpatient'), ('inpatient', 'Inpatient')],
             'Patient status', sort=False, default='outpatient')
@@ -49,12 +47,9 @@ class medical_appointment(models.Model):
             'Case Product')
     comments = fields.Text(string='Info')
     invoice_to_insurer = fields.Boolean('Invoice to Insurance')
-    medical_patient_psc_ids = fields.Many2many('medical.patient.psc',
-            string='Pediatrics Symptoms Checklist')
-    medical_prescription_order_ids = \
-        fields.One2many('medical.prescription.order', 'appointment_id',
-                        string='Prescription')
-    insurer_id = fields.Many2one('medical.insurance', 'Insurer')
+    # Removed medical_patient_psc_ids - model deleted
+    # Removed medical_prescription_order_ids - model deleted
+    # Removed insurer_id - model deleted
     therapy_ids = fields.Many2many('therapy.type', string='Therapies', tracking=True)
     duration = fields.Integer('Duration (Mins)')
     invoice_id = fields.Many2one("account.move", string="Invoice", readonly=True)
@@ -174,16 +169,7 @@ class medical_appointment(models.Model):
         return name == 'sort' or super()._valid_field_parameter(field,
                 name)
 
-    @api.onchange('patient_id')
-    def onchange_name(self):
-        ins_obj = self.env['medical.insurance']
-        ins_record = ins_obj.search([('medical_insurance_partner_id',
-                                    '=',
-                                    self.patient_id.patient_id.id)])
-        if len(ins_record) >= 1:
-            self.insurer_id = ins_record[0].id
-        else:
-            self.insurer_id = False
+    # Removed onchange_name - model deleted
 
     @api.model_create_multi
     def create(self, vals_list):
@@ -196,13 +182,7 @@ class medical_appointment(models.Model):
                 msg.message_post(body=msg_body)
         return super(medical_appointment, self).create(vals_list)
 
-    @api.onchange('inpatient_registration_id')
-    def onchange_patient(self):
-        if not self.inpatient_registration_id:
-            self.patient_id = ''
-        inpatient_obj = self.env['medical.inpatient.registration'
-                                 ].browse(self.inpatient_registration_id.id)
-        self.patient_id = inpatient_obj.id
+    # Removed onchange_patient - field deleted
 
     def confirm(self):
         self.write({'state': 'confirmed'})

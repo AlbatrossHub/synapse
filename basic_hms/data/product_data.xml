@@ -13,33 +13,24 @@
         <record id="product_speech_therapy" model="product.template">
             <field name="name">Speech Therapy Session</field>
             <field name="type">service</field>
-            <field name="list_price">1500.0</field>
-            <field name="standard_price">1200.0</field>
-            <field name="categ_id" ref="product.product_category_all"/>
+            <field name="list_price">600.0</field>
             <field name="uom_id" ref="uom.product_uom_unit"/>
-            <field name="uom_po_id" ref="uom.product_uom_unit"/>
             <field name="invoice_policy">order</field>
         </record>
 
         <record id="product_occupational_therapy" model="product.template">
             <field name="name">Occupational Therapy Session</field>
             <field name="type">service</field>
-            <field name="list_price">1800.0</field>
-            <field name="standard_price">1500.0</field>
-            <field name="categ_id" ref="product.product_category_all"/>
+            <field name="list_price">600.0</field>
             <field name="uom_id" ref="uom.product_uom_unit"/>
-            <field name="uom_po_id" ref="uom.product_uom_unit"/>
             <field name="invoice_policy">order</field>
         </record>
 
         <record id="product_physiotherapy" model="product.template">
             <field name="name">Physiotherapy Session</field>
             <field name="type">service</field>
-            <field name="list_price">2000.0</field>
-            <field name="standard_price">1600.0</field>
-            <field name="categ_id" ref="product.product_category_all"/>
+            <field name="list_price">600.0</field>
             <field name="uom_id" ref="uom.product_uom_unit"/>
-            <field name="uom_po_id" ref="uom.product_uom_unit"/>
             <field name="invoice_policy">order</field>
         </record>
 

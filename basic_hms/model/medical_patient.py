@@ -98,7 +98,7 @@ class medical_patient(models.Model):
     blood_type = fields.Selection([('A', 'A'),('B', 'B'),('AB', 'AB'),('O', 'O')], string ="Blood Type")
     rh = fields.Selection([('-+', '+'),('--', '-')], string ="Rh")
     receivable = fields.Float(string="Receivable", readonly=True)
-    current_insurance_id = fields.Many2one('medical.insurance',string="Insurance")
+    # Removed current_insurance_id - model deleted
     partner_address_id = fields.Many2one('res.partner', string="Address", )
     referred_by = fields.Many2one('res.partner', string="Referred by")
     referred_by_st = fields.Char(string="Referred by")
@@ -107,8 +107,8 @@ class medical_patient(models.Model):
     street2 = fields.Char(readonly=False, tracking=True)
     zip_code = fields.Char(readonly=False, tracking=True)
     city = fields.Char(readonly=False, tracking=True)
-    state_id = fields.Many2one("res.country.state", related='patient_id.state_id', readonly=False, tracking=True)
-    country_id = fields.Many2one('res.country', related='patient_id.country_id', readonly=False, tracking=True)
+    state_id = fields.Many2one("res.country.state", readonly=False, tracking=True)
+    country_id = fields.Many2one('res.country', readonly=False, tracking=True)
     
     primary_care_physician_id = fields.Many2one('medical.physician', string="Primary Care Doctor", tracking=True)
     patient_status = fields.Char(string="Hospitalization Status",readonly=True)
@@ -124,7 +124,7 @@ class medical_patient(models.Model):
     notes = fields.Text(string="Extra info")
     medical_vaccination_ids = fields.One2many('medical.vaccination','medical_patient_vaccines_id')
     medical_appointments_ids = fields.One2many('medical.appointment','patient_id',string='Appointments')
-    medical_ipd_ids = fields.One2many('medical.inpatient.registration','patient_id',string='IPD Lines')
+    # Removed medical_ipd_ids - model deleted
     report_date = fields.Date('Date',default = datetime.today().date())
     medication_ids = fields.One2many('medical.patient.medication1','medical_patient_medication_id')
     ses_notes = fields.Text('Notes')
@@ -164,27 +164,8 @@ class medical_patient(models.Model):
             'search_view_id': self.env.ref('basic_hms.view_medical_appointment_search').id
         }
 
-    def action_open_inpatient(self):
-        self.ensure_one()
-        return {
-            'type': 'ir.actions.act_window',
-            'name': 'Inpatients',
-            'view_mode': 'list,form',
-            'res_model': 'medical.inpatient.registration',
-            'domain': [('patient_id', '=', self.id)],
-            'context': "{'create': False}"
-        }
-
-    def action_open_treatments(self):
-        self.ensure_one()
-        return {
-            'type': 'ir.actions.act_window',
-            'name': 'Therapies',
-            'view_mode': 'list',
-            'res_model': 'medical.treatment.history',
-            'domain': [('partner_id', '=', self.patient_id.id)],
-            'context': "{'create': False}"
-        }
+    # Removed action_open_inpatient - model deleted
+    # Removed action_open_treatments - model deleted
 
     def _valid_field_parameter(self, field, name):
         return name == 'sort' or super()._valid_field_parameter(field, name)
