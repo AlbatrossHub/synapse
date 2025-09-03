@@ -3,7 +3,7 @@
 
 {
     "name": "Therapy Report (XLSX)",
-    "version": "18.0.1.0",
+    "version": "18.0",
     "description": "Generate an XLSX report for medical appointments with therapy data, including commission calculations.",
     "summary": "Therapy Report | Medical Appointment Report | Therapy Commission Report | XLSX Export | Medical Billing Report",
     "category": "Healthcare",
