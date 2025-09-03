@@ -15,7 +15,6 @@
             <field name="type">service</field>
             <field name="list_price">600.0</field>
             <field name="uom_id" ref="uom.product_uom_unit"/>
-            <field name="uom_po_id" ref="uom.product_uom_unit"/>
             <field name="invoice_policy">order</field>
         </record>
 
@@ -24,7 +23,6 @@
             <field name="type">service</field>
             <field name="list_price">600.0</field>
             <field name="uom_id" ref="uom.product_uom_unit"/>
-            <field name="uom_po_id" ref="uom.product_uom_unit"/>
             <field name="invoice_policy">order</field>
         </record>
 
@@ -33,7 +31,6 @@
             <field name="type">service</field>
             <field name="list_price">600.0</field>
             <field name="uom_id" ref="uom.product_uom_unit"/>
-            <field name="uom_po_id" ref="uom.product_uom_unit"/>
             <field name="invoice_policy">order</field>
         </record>
 
