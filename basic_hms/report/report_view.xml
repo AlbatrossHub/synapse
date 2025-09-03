@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
+<odoo>
     <data>
-        <record id="report_print_prescription" model="ir.actions.report">
-            <field name="name">Prescription</field>
-            <field name="model">medical.prescription.order</field>
-            <field name="report_type">qweb-pdf</field>
-            <field name="report_name">basic_hms.prescription_demo_report</field>
-            <field name="report_file">basic_hms.prescription_demo_report</field>
-            <field name="binding_model_id" ref="model_medical_prescription_order"/>
-            <field name="binding_type">report</field>
-        </record>
+        <!-- Removed prescription report - model deleted -->
 
         <record id="report_print_appointment" model="ir.actions.report">
             <field name="name">Appointment Recipts New</field>
@@ -62,14 +54,6 @@
             <field name="binding_type">report</field>
         </record>
 
-        <record id="report_print_lab_result_demo" model="ir.actions.report">
-            <field name="name">Lab Record</field>
-            <field name="model">medical.lab</field>
-            <field name="report_type">qweb-pdf</field>
-            <field name="report_name">basic_hms.lab_result_demo</field>
-            <field name="report_file">basic_hms.lab_result_demo</field>
-            <field name="binding_model_id" ref="model_medical_lab"/>
-            <field name="binding_type">report</field>
-        </record>
+        <!-- Removed lab report - model deleted -->
     </data>
-</openerp>
+</odoo>

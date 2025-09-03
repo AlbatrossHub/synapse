@@ -104,7 +104,6 @@
                                 <group string="Patient General Information">
                                     <group>
                                         <field name="blood_type" />
-                                        <field name="current_insurance_id" />
                                     </group>
                                     <group>
                                         <field name="rh" />
@@ -115,23 +114,6 @@
 
                             </page>
 
-                            <page string="Diseases">
-                                <field name="patient_disease_ids"
-                                    nolabel="1" widget="section_and_note_one2many"/>
-                            </page>
-
-                            <page string="Medication">
-                                <field name="medication_ids" widget="section_and_note_one2many" >
-                                    <list>
-                                        <field name="medical_medicament_id" />
-                                        <field name="indication_pathology_id" />
-                                        <field name="start_treatment" />
-                                        <field name="end_treatment" />
-                                        <field name="is_active" />
-                                        <field name="doctor_physician_id" />
-                                    </list>
-                                </field>
-                            </page>
                             <page string="Vaccinations">
                               
                                 <field name="medical_vaccination_ids"
@@ -230,26 +212,5 @@
 
         <menuitem id="menu_medical_patient_code" action="action_medical_patient"
             parent="menu_patients" sequence="0" />
-
-        <record id="action_view_priscription_id2" model="ir.actions.act_window">
-            <field name="name">Prescription Orders</field>
-            <field name="res_model">medical.prescription.order</field>
-            <field name="view_mode">list</field>
-            <field name="domain">[('patient_id', '=', active_id)]</field>
-        </record>
-
-        <record id="action_psc_id" model="ir.actions.act_window">
-            <field name="name">PSC</field>
-            <field name="res_model">medical.patient.psc</field>
-            <field name="view_mode">list,form</field>
-            <field name="domain">[('patient_id', '=', active_id)]</field>
-        </record>
-
-        <record id="action_view_lab_id" model="ir.actions.act_window">
-            <field name="name">Lab Reports</field>
-            <field name="res_model">medical.lab</field>
-            <field name="view_mode">list,form</field>
-            <field name="domain">[('patient_id', '=', active_id)]</field>
-        </record>
 
 </odoo>
