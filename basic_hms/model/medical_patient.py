@@ -40,6 +40,11 @@ class medical_patient(models.Model):
                 self.patient_id.name = self.patient_name
             # If no patient_id, we'll create one in the create/write method
 
+    @api.onchange('mobile')
+    def _onchange_mobile(self):
+        """Handle mobile changes - mobile is now a local field"""
+        pass
+
     def print_report(self):
         return self.env.ref('basic_hms.report_print_patient_card').report_action(self)
 
@@ -128,7 +133,7 @@ class medical_patient(models.Model):
     report_date = fields.Date('Date',default = datetime.today().date())
     medication_ids = fields.One2many('medical.patient.medication1','medical_patient_medication_id')
     ses_notes = fields.Text('Notes')
-    mobile = fields.Char(related='patient_id.mobile', string="Mobile", readonly=False, tracking=True)
+    mobile = fields.Char(string="Mobile", tracking=True)
     phone = fields.Char(related='patient_id.phone', string="Phone", readonly=False, tracking=True)
     email = fields.Char(related='patient_id.email', string="Email", readonly=False, tracking=True)
     height = fields.Char(string="Height", tracking=True)
@@ -228,8 +233,6 @@ class medical_patient(models.Model):
                 }
                 partner_vals = self._ensure_patient_partner(partner_vals)
                 # Add related fields if provided
-                if record.mobile:
-                    partner_vals['mobile'] = record.mobile
                 if record.phone:
                     partner_vals['phone'] = record.phone
                 if record.email:
@@ -279,8 +282,6 @@ class medical_patient(models.Model):
                 partner_vals = {'name': vals.get('patient_name')}
                 
                 # Sync related fields if they are being updated
-                if vals.get('mobile'):
-                    partner_vals['mobile'] = vals.get('mobile')
                 if vals.get('phone'):
                     partner_vals['phone'] = vals.get('phone')
                 if vals.get('email'):
@@ -309,8 +310,6 @@ class medical_patient(models.Model):
                 }
                 partner_vals = self._ensure_patient_partner(partner_vals)
                 # Add related fields if provided
-                if vals.get('mobile'):
-                    partner_vals['mobile'] = vals.get('mobile')
                 if vals.get('phone'):
                     partner_vals['phone'] = vals.get('phone')
                 if vals.get('email'):
