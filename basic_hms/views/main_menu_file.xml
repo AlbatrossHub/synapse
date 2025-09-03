@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>                 
+<odoo>                 
         <menuitem 
         	id="main_menu_hospital_management"
         	name="SYNAPSE Clinic"
@@ -64,4 +64,4 @@
 
 
 
-</openerp>
+</odoo>

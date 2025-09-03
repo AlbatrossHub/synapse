@@ -43,7 +43,6 @@
         'data/product_data.xml',
         'data/doctor_recrods.xml',
         'data/therapy_type_data.xml',
-        'views/assets.xml',
         'views/login_page.xml',
         'views/main_menu_file.xml',
         'wizard/medical_appointments_invoice_wizard.xml',
@@ -99,6 +98,11 @@
         'report/patient_vaccinations_document_report.xml',
         'report/prescription_demo_report.xml',
     ],
+    "assets": {
+        "web.assets_frontend": [
+            "basic_hms/static/src/css/style.css",
+        ],
+    },
     "author": "BROWSEINFO",
     'website': "https://www.browseinfo.com/demo-request?app=basic_hms&version=18&edition=Community",
     "installable": True,

@@ -127,3 +127,4 @@ Enable debug logging to see detailed data processing:
 _logger.info(f"Processing invoice: {invoice.name}")
 _logger.info(f"Therapy data: {therapy_data}")
 ```
+

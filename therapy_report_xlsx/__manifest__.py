@@ -15,6 +15,13 @@
         "security/ir.model.access.csv",
         "wizard/therapy_report_wizard.xml",
     ],
+    "assets": {
+        'web.assets_backend': [
+            # Add any backend assets here if needed
+        ],
+    },
     "installable": True,
     "application": False,
+    "auto_install": False,
 }
+
