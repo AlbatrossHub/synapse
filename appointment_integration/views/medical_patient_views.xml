@@ -18,7 +18,7 @@
                         type="object"
                         string="Create Consolidated Invoice"
                         class="oe_highlight"
-                        icon="fa-file-invoice-o"
+                        icon="fa-file-o"
                         invisible="not patient_id"/>
                 </xpath>
             </field>

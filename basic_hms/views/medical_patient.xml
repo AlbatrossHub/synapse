@@ -9,8 +9,8 @@
                     <header>
                         <button name="print_report" type="object"
                             string="Print Patient Card" class="oe_highlight" />
-                        <button name="action_create_new_appointment" type="object"
-                            string="Create New Appointment" class="oe_highlight" icon="fa-calendar-plus-o" />
+<!--                         <button name="action_create_new_appointment" type="object"
+                            string="Create New Appointment" class="oe_highlight" icon="fa-calendar-plus-o" /> -->
                     </header>
 <!--                     <button class="oe_stat_button" type="object" icon="fa-calendar"
                             name="action_open_appointments">

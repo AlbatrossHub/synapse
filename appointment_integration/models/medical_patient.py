@@ -12,10 +12,12 @@ class MedicalPatient(models.Model):
         if not self.patient_id:
             raise UserError(_('No patient partner associated with this medical patient record.'))
         
-        # Find unprocessed calendar events for this patient
+        # Find unprocessed calendar events for this patient (today or past only)
+        today = fields.Date.today()
         calendar_events = self.env['calendar.event'].search([
             ('partner_ids', 'in', self.patient_id.id),
-            ('is_computed_as_medical_appointment', '=', False)
+            ('is_computed_as_medical_appointment', '=', False),
+            ('start', '<=', today)  # Only events from today or in the past
         ])
         
         if not calendar_events:

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_therapy_report_wizard" model="ir.ui.view">
+        <field name="name">therapy.report.wizard.form</field>
+        <field name="model">therapy.report.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Therapy Report">
+                <group>
+                    <field name="date_start" />
+                    <field name="date_end" />
+                    <field name="therapy_type_ids" widget="many2many_tags" 
+                           help="Leave empty to include all therapy types"/>
+                    <field name="generated_xlsx_file" invisible="1" />
+                </group>
+                <div class="alert alert-info" role="alert">
+                    <strong>Report Information:</strong><br/>
+                    • If you don't specify a date range, the report will include all available data.<br/>
+                    • If you don't select specific therapy types, all active therapy types will be included.<br/>
+                    • The report will show invoice partner, therapy totals, and commission calculations.<br/>
+                    • Commission is calculated based on therapy type configuration (fixed amount or percentage).
+                </div>
+                <footer>
+                    <button name="action_generate_xlsx_report" type="object" string="Generate &amp; Download XLSX" class="btn-primary" />
+                    <button string="Cancel" class="btn-secondary" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_therapy_report_wizard" model="ir.actions.act_window">
+        <field name="name">Therapy Report</field>
+        <field name="res_model">therapy.report.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="menu_therapy_report_wizard" 
+              name="Therapy Report" 
+              action="action_therapy_report_wizard" 
+              parent="basic_hms.main_menu_configartion" 
+              sequence="50" />
+</odoo>
