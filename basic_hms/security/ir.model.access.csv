@@ -66,7 +66,6 @@ access_ir_attachment_manager,ir.attachment.manager,base.model_ir_attachment,bi_g
 access_product_uom_user,product.uom.user,product.model_uom_uom,bi_group_doctor,1,0,0,0
 access_product_pricelist_sale_user,product.pricelist.sale.user,product.model_product_pricelist,bi_group_doctor,1,0,0,0
 access_account_account_salesman,account_account salesman,account.model_account_account,bi_group_doctor,1,0,0,0
-access_product_uom_categ_sale_manager,product.uom.categ salemanager,product.model_uom_category,bi_group_doctor,1,1,1,1
 access_product_uom_sale_manager,product.uom salemanager,product.model_uom_uom,bi_group_doctor,1,1,1,1
 access_product_category_sale_manager,product.category salemanager,product.model_product_category,bi_group_doctor,1,1,1,1
 access_product_supplierinfo_user,product.supplierinfo.user,product.model_product_supplierinfo,bi_group_doctor,1,0,0,0
@@ -129,16 +128,14 @@ access_medical_appointment1,access_medical_appointment1,model_medical_appointmen
 access_medical_insurance,medical.insurance,model_medical_insurance,bi_group_doctor,1,1,1,0
 access_medical_patient_lab_tests,medical.patient.lab.test,model_medical_patient_lab_test,bi_group_doctor,1,1,1,0
 access_medical_patient_lab_test_chem,medical.patient.lab.test.chem,model_medical_patient_lab_test,group_chemist,1,0,0,0
-access_medical_appointments_invoice_wizard,medical.appointments.invoice.wizard,model_medical_appointments_invoice_wizard,base.group_user,1,1,1,1
-access_create_prescription_invoice,create.prescription.invoice,model_create_prescription_invoice,base.group_user,1,1,1,1
-access_medical_lab_test_create,medical.lab.test.create,model_medical_lab_test_create,base.group_user,1,1,1,1
-access_medical_lab_test_invoice,medical.lab.test.invoice,model_medical_lab_test_invoice,base.group_user,1,1,1,1
+# Removed invalid model reference that doesn't exist in the code
+# Removed invalid model reference that doesn't exist in the code
+# Removed invalid model reference that doesn't exist in the code
+# Removed invalid model reference that doesn't exist in the code
 
 
 
-basic_hms.access_create_prescription_shipment,access_create_prescription_shipment,basic_hms.model_create_prescription_shipment,base.group_user,1,1,1,1
-basic_hms.access_medical_health_service_invoice,access_medical_health_service_invoice,basic_hms.model_medical_health_service_invoice,base.group_user,1,1,1,1
-basic_hms.access_medical_patient_diseases,access_medical_patient_diseases,basic_hms.model_medical_patient_diseases,base.group_user,1,1,1,1
+# Removed invalid model references that don't exist in the code
 
 access_medical_insurance_global_doctor,medical.insurance,model_medical_insurance,base.group_user,1,0,0,0
 access_therapy_type,access_therapy_type,model_therapy_type,base.group_user,1,1,1,1
