@@ -18,8 +18,8 @@ access_medical_patient_chemist,medical.group.patient.chemist,model_medical_patie
 access_medical_patient_medical_group,medical.group.patient.medical.group,model_medical_patient,group_medical_group,1,0,0,0
 access_doctor_medical_patient_disease_chemist,medical.doctor.group.medical.patient.disease.chemist,model_medical_patient_disease,group_chemist,1,0,0,0
 access_medical_lab_test_critearea_chem,medical.group.medical.lab.test.critearea.chem,model_medical_test_critearea,group_chemist,1,1,1,1
-access_medical_physicians,medical.group.physician,model_medical_physician,group_medical_group,1,1,1,
-access_medical_physician_doctor,medical.group.physician.doctor,model_medical_physician,bi_group_doctor,1,1,1,
+access_medical_physicians,medical.group.physician,model_medical_physician,group_medical_group,1,1,1,1
+access_medical_physician_doctor,medical.group.physician.doctor,model_medical_physician,bi_group_doctor,1,1,1,1
 access_dose_unit,medical.group.dose.unit,model_medical_dose_unit,group_medical_group,1,1,1,1
 access_medical_patients_medication,medical.group.patient.medication,model_medical_patient_medication,group_medical_group,1,0,0,0
 access_medical_for_patient_medication,medical.group.patient,model_medical_patient,group_medical_group,1,0,0,0
@@ -120,7 +120,7 @@ access_medical_patient_lab_test,access_medical_patient_lab_test,model_medical_pa
 access_medical_prescription_order,access_medical_prescription_order,model_medical_prescription_order,base.group_user,1,0,0,0
 access_medical_prescription_order_doctor,access_medical_prescription_order_doctor,model_medical_prescription_order,bi_group_doctor,1,1,1,1
 access_medical_patient_psc,access_medical_patient_psc,model_medical_patient_psc,base.group_user,1,0,0,0
-access_medical_medicament_doctor,access_medical_medicament_doctor,model_medical_medicament,bi_group_doctor,1,1,1,
+access_medical_medicament_doctor,access_medical_medicament_doctor,model_medical_medicament,bi_group_doctor,1,1,1,1
 access_pet_type,access_pet_type,model_pet_type,base.group_user,1,0,0,0
 access_medical_patient_evaluation,access_medical_patient_evaluation,model_medical_patient_evaluation,base.group_user,1,0,0,0
 access_medical_appointment,access_medical_appointment,model_medical_appointment,base.group_user,1,0,0,0
@@ -141,4 +141,4 @@ access_medical_insurance_global_doctor,medical.insurance,model_medical_insurance
 access_therapy_type,access_therapy_type,model_therapy_type,base.group_user,1,1,1,1
 access_therapy_type_doctor,access_therapy_type_doctor,model_therapy_type,bi_group_doctor,1,1,1,1
 access_therapy_type_receptionist,access_therapy_type_receptionist,model_therapy_type,group_receptionist,1,1,1,0
-access_medical_appointments_therapy_invoice_wizard,medical.appointments.therapy.invoice.wizard,model_medical_appointments_therapy_invoice_wizard,base.group_user,1,1,1,1
+# Removed invalid model reference that doesn't exist in the code
