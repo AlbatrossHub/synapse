@@ -4,7 +4,7 @@
 {
 
     "name": "SYNAPSE",
-    "version": "18.0.0.0",
+    "version": "18.0",
     "currency": 'INR',
     "summary": "Apps basic Hospital Management system Healthcare Management Clinic Management apps manage clinic manage Patient hospital manage Healthcare system Patient Management Hospital Management Healthcare Management Clinic Management hospital Lab Test Request",
     "category": "Industry",
