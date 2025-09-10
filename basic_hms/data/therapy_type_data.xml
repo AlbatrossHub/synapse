@@ -7,7 +7,7 @@
             <field name="code">ST</field>
             <field name="product_id" ref="product_speech_therapy"/>
             <field name="commission_type">percentage</field>
-            <field name="commission_value">15.0</field>
+            <field name="commission_value">80.0</field>
             <field name="active">True</field>
             <field name="notes">Speech therapy for communication disorders, language development, and speech impairments.</field>
         </record>
@@ -18,7 +18,7 @@
             <field name="code">OT</field>
             <field name="product_id" ref="product_occupational_therapy"/>
             <field name="commission_type">percentage</field>
-            <field name="commission_value">12.0</field>
+            <field name="commission_value">70.0</field>
             <field name="active">True</field>
             <field name="notes">Occupational therapy for daily living skills, motor skills, and rehabilitation.</field>
         </record>
@@ -28,8 +28,8 @@
             <field name="name">Physiotherapy</field>
             <field name="code">PT</field>
             <field name="product_id" ref="product_physiotherapy"/>
-            <field name="commission_type">fixed</field>
-            <field name="commission_value">500.0</field>
+            <field name="commission_type">percentage</field>
+            <field name="commission_value">70.0</field>
             <field name="active">True</field>
             <field name="notes">Physiotherapy for physical rehabilitation, pain management, and mobility improvement.</field>
         </record>
