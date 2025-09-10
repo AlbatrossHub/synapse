@@ -5,7 +5,7 @@
         <record id="seq_medical_consolidated_inv" model="ir.sequence">
             <field name="name">Medical Consolidated Invoice</field>
             <field name="code">medical_consolidated_inv_seq</field>
-            <field name="prefix">CONS-INV/%(y)s/</field>
+            <field name="prefix">SC-INV/%(y)s/</field>
             <field name="padding">5</field>
             <field name="number_increment">1</field>
         </record>

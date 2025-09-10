@@ -60,7 +60,6 @@ class MedicalPatient(models.Model):
             # Create medical appointment
             medical_appointment = self.env['medical.appointment'].create({
                 'patient_id': self.id,
-                # 'doctor_id': events[0].user_id.id if events[0].user_id else False,
                 'appointment_date': appointment_date,
                 'state': 'pending',
                 'therapy_ids': [(6, 0, all_therapy_ids)],

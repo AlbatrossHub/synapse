@@ -134,10 +134,24 @@ class medical_patient(models.Model):
     height = fields.Char(string="Height", tracking=True)
     weight = fields.Char(string="Weight", tracking=True)
     appointment_count = fields.Integer(string="Appointments", compute="_compute_appointment_count", default=0)
+    invoice_count = fields.Integer(string="Invoices", compute="_compute_invoice_count", default=0)
 
     def _compute_appointment_count(self):
         for record in self:
             record.appointment_count = self.env['medical.appointment'].search_count([('patient_id', '=', record.id)])
+
+    @api.depends('patient_id')
+    def _compute_invoice_count(self):
+        """Compute the number of invoices for this patient"""
+        for rec in self:
+            if rec.patient_id:
+                invoices = self.env['account.move'].search([
+                    ('partner_id', '=', rec.patient_id.id),
+                    ('move_type', 'in', ['out_invoice', 'out_refund'])
+                ])
+                rec.invoice_count = len(invoices)
+            else:
+                rec.invoice_count = 0
 
     def action_open_appointments(self):
         self.ensure_one()
@@ -162,6 +176,29 @@ class medical_patient(models.Model):
             'domain': [('patient_id', '=', self.id)],
             'context': "{'create': False}",
             'search_view_id': self.env.ref('basic_hms.view_medical_appointment_search').id
+        }
+
+    def action_open_invoices(self):
+        """Open invoices for this patient"""
+        self.ensure_one()
+        if not self.patient_id:
+            raise UserError(_('No patient partner associated with this medical patient record.'))
+        
+        return {
+            'type': 'ir.actions.act_window',
+            'name': f'Invoices - {self.patient_name or self.patient_id.name}',
+            'view_mode': 'list,form',
+            'res_model': 'account.move',
+            'domain': [
+                ('partner_id', '=', self.patient_id.id),
+                ('move_type', 'in', ['out_invoice', 'out_refund'])
+            ],
+            'context': {
+                'default_partner_id': self.patient_id.id,
+                'default_move_type': 'out_invoice',
+                'create': True,
+                'edit': True,
+            },
         }
 
     # Removed action_open_inpatient - model deleted
