@@ -46,6 +46,15 @@
                             <span class="o_stat_text">Appointment</span>
                         </div>
                     </button>
+                    <button name="action_open_invoices" type="object"
+                        class="oe_stat_button" icon="fa-file-text-o"
+                        invisible="invoice_count &lt; 1">
+                        <div class="o_stat_info">
+                            <field name="invoice_count" class="o_stat_value"/>
+                            <span class="o_stat_text" invisible="invoice_count &lt; 2">Invoice</span>
+                            <span class="o_stat_text" invisible="invoice_count &gt; 1">Invoices</span>
+                        </div>
+                    </button>
                     </div>
                       
                             <field name="photo" nolabel="1"
