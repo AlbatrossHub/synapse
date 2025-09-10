@@ -33,7 +33,7 @@ class medical_appointment(models.Model):
             required=True, default=fields.Datetime.now, tracking=True)
     appointment_end = fields.Datetime('Patient Exit time', tracking=True)
     doctor_id = fields.Many2one('medical.physician', 'Doctor',
-                                required=True, default=lambda self: self._default_doctor_id())
+                                default=lambda self: self._default_doctor_id())
     no_invoice = fields.Boolean(string='Invoice exempt', default=False)
     validity_status = fields.Selection([('invoice', 'Invoice'), ('tobe'
             , 'To be Invoiced')], 'Status', sort=False, readonly=True,
