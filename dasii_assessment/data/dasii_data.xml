@@ -1,0 +1,2165 @@
+<?xml version="1.0" ?>
+<odoo>
+    <data noupdate="0">
+        <record id="cluster_motor_I" model="dasii.cluster">
+            <field name="name">Neck control</field>
+            <field name="code">I</field>
+            <field name="scale">motor</field>
+            <field name="sequence">10</field>
+        </record>
+        <record id="cluster_motor_II" model="dasii.cluster">
+            <field name="name">Body Control</field>
+            <field name="code">II</field>
+            <field name="scale">motor</field>
+            <field name="sequence">20</field>
+        </record>
+        <record id="cluster_motor_III" model="dasii.cluster">
+            <field name="name">Locomotion I: Coordinated movements</field>
+            <field name="code">III</field>
+            <field name="scale">motor</field>
+            <field name="sequence">30</field>
+        </record>
+        <record id="cluster_motor_IV" model="dasii.cluster">
+            <field name="name">Locomotion II: Skills</field>
+            <field name="code">IV</field>
+            <field name="scale">motor</field>
+            <field name="sequence">40</field>
+        </record>
+        <record id="cluster_motor_V" model="dasii.cluster">
+            <field name="name">Manipulation</field>
+            <field name="code">V</field>
+            <field name="scale">motor</field>
+            <field name="sequence">50</field>
+        </record>
+        <record id="cluster_mental_I" model="dasii.cluster">
+            <field name="name">Cognizance - Visual</field>
+            <field name="code">I</field>
+            <field name="scale">mental</field>
+            <field name="sequence">10</field>
+        </record>
+        <record id="cluster_mental_II" model="dasii.cluster">
+            <field name="name">Cognizance - Auditory</field>
+            <field name="code">II</field>
+            <field name="scale">mental</field>
+            <field name="sequence">20</field>
+        </record>
+        <record id="cluster_mental_III" model="dasii.cluster">
+            <field name="name">Reaching, manipulation, and exploring</field>
+            <field name="code">III</field>
+            <field name="scale">mental</field>
+            <field name="sequence">30</field>
+        </record>
+        <record id="cluster_mental_IV" model="dasii.cluster">
+            <field name="name">Memory</field>
+            <field name="code">IV</field>
+            <field name="scale">mental</field>
+            <field name="sequence">40</field>
+        </record>
+        <record id="cluster_mental_V" model="dasii.cluster">
+            <field name="name">Social interaction and imitative behavior</field>
+            <field name="code">V</field>
+            <field name="scale">mental</field>
+            <field name="sequence">50</field>
+        </record>
+        <record id="cluster_mental_VI" model="dasii.cluster">
+            <field name="name">Language - Vocalization, speech, and comm.</field>
+            <field name="code">VI</field>
+            <field name="scale">mental</field>
+            <field name="sequence">60</field>
+        </record>
+        <record id="cluster_mental_VII" model="dasii.cluster">
+            <field name="name">Language - Vocabulary and comprehension</field>
+            <field name="code">VII</field>
+            <field name="scale">mental</field>
+            <field name="sequence">70</field>
+        </record>
+        <record id="cluster_mental_VIII" model="dasii.cluster">
+            <field name="name">Understanding relationship</field>
+            <field name="code">VIII</field>
+            <field name="scale">mental</field>
+            <field name="sequence">80</field>
+        </record>
+        <record id="cluster_mental_IX" model="dasii.cluster">
+            <field name="name">Differentiation by use, shapes, and movements</field>
+            <field name="code">IX</field>
+            <field name="scale">mental</field>
+            <field name="sequence">90</field>
+        </record>
+        <record id="cluster_mental_X" model="dasii.cluster">
+            <field name="name">Manual dexterity</field>
+            <field name="code">X</field>
+            <field name="scale">mental</field>
+            <field name="sequence">100</field>
+        </record>
+        <record id="item_motor_1" model="dasii.item">
+            <field name="item_no">1</field>
+            <field name="description">Lifts head off when at shoulder</field>
+            <field name="scale">motor</field>
+            <field name="age_50">0.1</field>
+            <field name="age_3">0.1</field>
+            <field name="age_97">1.4</field>
+            <field name="cluster_id" ref="cluster_motor_I"/>
+        </record>
+        <record id="item_motor_2" model="dasii.item">
+            <field name="item_no">2</field>
+            <field name="description">Prone – Lateral head movements</field>
+            <field name="scale">motor</field>
+            <field name="age_50">0.1</field>
+            <field name="age_3">0.1</field>
+            <field name="age_97">1.4</field>
+            <field name="cluster_id" ref="cluster_motor_I"/>
+        </record>
+        <record id="item_motor_3" model="dasii.item">
+            <field name="item_no">3</field>
+            <field name="description">Prone – Crawling movements</field>
+            <field name="scale">motor</field>
+            <field name="age_50">0.3</field>
+            <field name="age_3">0.1</field>
+            <field name="age_97">1.4</field>
+            <field name="cluster_id" ref="cluster_motor_III"/>
+        </record>
+        <record id="item_motor_4" model="dasii.item">
+            <field name="item_no">4</field>
+            <field name="description">Postural adjustment at shoulder</field>
+            <field name="scale">motor</field>
+            <field name="age_50">0.6</field>
+            <field name="age_3">0.1</field>
+            <field name="age_97">1.4</field>
+            <field name="cluster_id" ref="cluster_motor_II"/>
+        </record>
+        <record id="item_motor_5" model="dasii.item">
+            <field name="item_no">5</field>
+            <field name="description">Arms thrust in play</field>
+            <field name="scale">motor</field>
+            <field name="age_50">0.7</field>
+            <field name="age_3">0.1</field>
+            <field name="age_97">1.4</field>
+            <field name="cluster_id" ref="cluster_motor_II"/>
+        </record>
+        <record id="item_motor_6" model="dasii.item">
+            <field name="item_no">6</field>
+            <field name="description">Turns from side to back</field>
+            <field name="scale">motor</field>
+            <field name="age_50">0.7</field>
+            <field name="age_3">0.1</field>
+            <field name="age_97">1.4</field>
+            <field name="cluster_id" ref="cluster_motor_II"/>
+        </record>
+        <record id="item_motor_7" model="dasii.item">
+            <field name="item_no">7</field>
+            <field name="description">Head erect and vertical</field>
+            <field name="scale">motor</field>
+            <field name="age_50">0.8</field>
+            <field name="age_3">0.1</field>
+            <field name="age_97">1.4</field>
+            <field name="cluster_id" ref="cluster_motor_I"/>
+        </record>
+        <record id="item_motor_8" model="dasii.item">
+            <field name="item_no">8</field>
+            <field name="description">Sits with support</field>
+            <field name="scale">motor</field>
+            <field name="age_50">0.8</field>
+            <field name="age_3">0.1</field>
+            <field name="age_97">2.3</field>
+            <field name="cluster_id" ref="cluster_motor_II"/>
+        </record>
+        <record id="item_motor_9" model="dasii.item">
+            <field name="item_no">9</field>
+            <field name="description">Legs thrust in play</field>
+            <field name="scale">motor</field>
+            <field name="age_50">0.9</field>
+            <field name="age_3">0.1</field>
+            <field name="age_97">1.4</field>
+            <field name="cluster_id" ref="cluster_motor_II"/>
+        </record>
+        <record id="item_motor_10" model="dasii.item">
+            <field name="item_no">10</field>
+            <field name="description">Retains Red-ring</field>
+            <field name="scale">motor</field>
+            <field name="age_50">0.9</field>
+            <field name="age_3">0.1</field>
+            <field name="age_97">1.5</field>
+            <field name="cluster_id" ref="cluster_motor_V"/>
+        </record>
+        <record id="item_motor_11" model="dasii.item">
+            <field name="item_no">11</field>
+            <field name="description">Dorsal suspension – lifts head</field>
+            <field name="scale">motor</field>
+            <field name="age_50">0.9</field>
+            <field name="age_3">0.5</field>
+            <field name="age_97">2.5</field>
+            <field name="cluster_id" ref="cluster_motor_I"/>
+        </record>
+        <record id="item_motor_12" model="dasii.item">
+            <field name="item_no">12</field>
+            <field name="description">Prone – Elevates self by arms</field>
+            <field name="scale">motor</field>
+            <field name="age_50">1.1</field>
+            <field name="age_3">0.7</field>
+            <field name="age_97">2.9</field>
+            <field name="cluster_id" ref="cluster_motor_II"/>
+        </record>
+        <record id="item_motor_13" model="dasii.item">
+            <field name="item_no">13</field>
+            <field name="description">Head erect and steady – 30 seconds</field>
+            <field name="scale">motor</field>
+            <field name="age_50">1.4</field>
+            <field name="age_3">0.8</field>
+            <field name="age_97">2.3</field>
+            <field name="cluster_id" ref="cluster_motor_I"/>
+        </record>
+        <record id="item_motor_14" model="dasii.item">
+            <field name="item_no">14</field>
+            <field name="description">Holds head steady</field>
+            <field name="scale">motor</field>
+            <field name="age_50">1.5</field>
+            <field name="age_3">1.1</field>
+            <field name="age_97">3.3</field>
+            <field name="cluster_id" ref="cluster_motor_I"/>
+        </record>
+        <record id="item_motor_15" model="dasii.item">
+            <field name="item_no">15</field>
+            <field name="description">Sits with slight support</field>
+            <field name="scale">motor</field>
+            <field name="age_50">1.6</field>
+            <field name="age_3">0.9</field>
+            <field name="age_97">3.3</field>
+            <field name="cluster_id" ref="cluster_motor_II"/>
+        </record>
+        <record id="item_motor_16" model="dasii.item">
+            <field name="item_no">16</field>
+            <field name="description">Hands predominantly open</field>
+            <field name="scale">motor</field>
+            <field name="age_50">2.0</field>
+            <field name="age_3">0.1</field>
+            <field name="age_97">3.9</field>
+            <field name="cluster_id" ref="cluster_motor_V"/>
+        </record>
+        <record id="item_motor_17" model="dasii.item">
+            <field name="item_no">17</field>
+            <field name="description">Cube-hold- Ulnar Palmer</field>
+            <field name="scale">motor</field>
+            <field name="age_50">2.2</field>
+            <field name="age_3">1.1</field>
+            <field name="age_97">3.3</field>
+            <field name="cluster_id" ref="cluster_motor_V"/>
+        </record>
+        <record id="item_motor_18" model="dasii.item">
+            <field name="item_no">18</field>
+            <field name="description">Turns from back to side</field>
+            <field name="scale">motor</field>
+            <field name="age_50">2.6</field>
+            <field name="age_3">1.1</field>
+            <field name="age_97">4.7</field>
+            <field name="cluster_id" ref="cluster_motor_II"/>
+        </record>
+        <record id="item_motor_19" model="dasii.item">
+            <field name="item_no">19</field>
+            <field name="description">Head balanced</field>
+            <field name="scale">motor</field>
+            <field name="age_50">2.8</field>
+            <field name="age_3">1.2</field>
+            <field name="age_97">5.3</field>
+            <field name="cluster_id" ref="cluster_motor_I"/>
+        </record>
+        <record id="item_motor_20" model="dasii.item">
+            <field name="item_no">20</field>
+            <field name="description">Pulls to sitting position</field>
+            <field name="scale">motor</field>
+            <field name="age_50">3.3</field>
+            <field name="age_3">1.8</field>
+            <field name="age_97">5.9</field>
+            <field name="cluster_id" ref="cluster_motor_II"/>
+        </record>
+        <record id="item_motor_21" model="dasii.item">
+            <field name="item_no">21</field>
+            <field name="description">Cube hold - Partial thumb opposition –</field>
+            <field name="scale">motor</field>
+            <field name="age_50">3.4</field>
+            <field name="age_3">1.8</field>
+            <field name="age_97">5.9</field>
+            <field name="cluster_id" ref="cluster_motor_V"/>
+        </record>
+        <record id="item_motor_22" model="dasii.item">
+            <field name="item_no">22</field>
+            <field name="description">Effort to sit</field>
+            <field name="scale">motor</field>
+            <field name="age_50">3.5</field>
+            <field name="age_3">1.8</field>
+            <field name="age_97">5.5</field>
+            <field name="cluster_id" ref="cluster_motor_II"/>
+        </record>
+        <record id="item_motor_23" model="dasii.item">
+            <field name="item_no">23</field>
+            <field name="description">Sits alone momentarily</field>
+            <field name="scale">motor</field>
+            <field name="age_50">3.5</field>
+            <field name="age_3">1.8</field>
+            <field name="age_97">5.5</field>
+            <field name="cluster_id" ref="cluster_motor_II"/>
+        </record>
+        <record id="item_motor_24" model="dasii.item">
+            <field name="item_no">24</field>
+            <field name="description">Rotates wrist</field>
+            <field name="scale">motor</field>
+            <field name="age_50">4.1</field>
+            <field name="age_3">2.8</field>
+            <field name="age_97">5.9</field>
+            <field name="cluster_id" ref="cluster_motor_V"/>
+        </record>
+        <record id="item_motor_25" model="dasii.item">
+            <field name="item_no">25</field>
+            <field name="description">Unilateral reaching</field>
+            <field name="scale">motor</field>
+            <field name="age_50">4.2</field>
+            <field name="age_3">2.8</field>
+            <field name="age_97">7.4</field>
+            <field name="cluster_id" ref="cluster_motor_V"/>
+        </record>
+        <record id="item_motor_26" model="dasii.item">
+            <field name="item_no">26</field>
+            <field name="description">Rolls from back to stomach</field>
+            <field name="scale">motor</field>
+            <field name="age_50">4.6</field>
+            <field name="age_3">2.8</field>
+            <field name="age_97">7.1</field>
+            <field name="cluster_id" ref="cluster_motor_II"/>
+        </record>
+        <record id="item_motor_27" model="dasii.item">
+            <field name="item_no">27</field>
+            <field name="description">Sits alone – 30 sec or more</field>
+            <field name="scale">motor</field>
+            <field name="age_50">4.9</field>
+            <field name="age_3">3.9</field>
+            <field name="age_97">7.1</field>
+            <field name="cluster_id" ref="cluster_motor_II"/>
+        </record>
+        <record id="item_motor_28" model="dasii.item">
+            <field name="item_no">28</field>
+            <field name="description">Attempts to secure pellet</field>
+            <field name="scale">motor</field>
+            <field name="age_50">4.9</field>
+            <field name="age_3">3.9</field>
+            <field name="age_97">7.4</field>
+            <field name="cluster_id" ref="cluster_motor_V"/>
+        </record>
+        <record id="item_motor_29" model="dasii.item">
+            <field name="item_no">29</field>
+            <field name="description">Pulls to standing position</field>
+            <field name="scale">motor</field>
+            <field name="age_50">5.2</field>
+            <field name="age_3">3.9</field>
+            <field name="age_97">7.1</field>
+            <field name="cluster_id" ref="cluster_motor_II"/>
+        </record>
+        <record id="item_motor_30" model="dasii.item">
+            <field name="item_no">30</field>
+            <field name="description">Sits alone – steady</field>
+            <field name="scale">motor</field>
+            <field name="age_50">5.6</field>
+            <field name="age_3">4.1</field>
+            <field name="age_97">6.4</field>
+            <field name="cluster_id" ref="cluster_motor_II"/>
+        </record>
+        <record id="item_motor_31" model="dasii.item">
+            <field name="item_no">31</field>
+            <field name="description">Sits alone - Good coordination</field>
+            <field name="scale">motor</field>
+            <field name="age_50">5.7</field>
+            <field name="age_3">4.3</field>
+            <field name="age_97">7.5</field>
+            <field name="cluster_id" ref="cluster_motor_II"/>
+        </record>
+        <record id="item_motor_32" model="dasii.item">
+            <field name="item_no">32</field>
+            <field name="description">Cube hold- complete thumb opposition</field>
+            <field name="scale">motor</field>
+            <field name="age_50">5.7</field>
+            <field name="age_3">4.0</field>
+            <field name="age_97">7.5</field>
+            <field name="cluster_id" ref="cluster_motor_V"/>
+        </record>
+        <record id="item_motor_33" model="dasii.item">
+            <field name="item_no">33</field>
+            <field name="description">Early stepping movements</field>
+            <field name="scale">motor</field>
+            <field name="age_50">5.7</field>
+            <field name="age_3">4.8</field>
+            <field name="age_97">7.4</field>
+            <field name="cluster_id" ref="cluster_motor_III"/>
+        </record>
+        <record id="item_motor_34" model="dasii.item">
+            <field name="item_no">34</field>
+            <field name="description">Pre walking progression</field>
+            <field name="scale">motor</field>
+            <field name="age_50">5.7</field>
+            <field name="age_3">4.8</field>
+            <field name="age_97">7.4</field>
+            <field name="cluster_id" ref="cluster_motor_III"/>
+        </record>
+        <record id="item_motor_35" model="dasii.item">
+            <field name="item_no">35</field>
+            <field name="description">Scoops pellet</field>
+            <field name="scale">motor</field>
+            <field name="age_50">6.4</field>
+            <field name="age_3">4.9</field>
+            <field name="age_97">7.6</field>
+            <field name="cluster_id" ref="cluster_motor_V"/>
+        </record>
+        <record id="item_motor_36" model="dasii.item">
+            <field name="item_no">36</field>
+            <field name="description">Partial finger prehension pellet</field>
+            <field name="scale">motor</field>
+            <field name="age_50">6.6</field>
+            <field name="age_3">5.3</field>
+            <field name="age_97">9.2</field>
+            <field name="cluster_id" ref="cluster_motor_V"/>
+        </record>
+        <record id="item_motor_37" model="dasii.item">
+            <field name="item_no">37</field>
+            <field name="description">Raises self to sitting position</field>
+            <field name="scale">motor</field>
+            <field name="age_50">6.9</field>
+            <field name="age_3">5.9</field>
+            <field name="age_97">9.2</field>
+            <field name="cluster_id" ref="cluster_motor_II"/>
+        </record>
+        <record id="item_motor_38" model="dasii.item">
+            <field name="item_no">38</field>
+            <field name="description">Stepping movements</field>
+            <field name="scale">motor</field>
+            <field name="age_50">7.5</field>
+            <field name="age_3">6.0</field>
+            <field name="age_97">9.3</field>
+            <field name="cluster_id" ref="cluster_motor_III"/>
+        </record>
+        <record id="item_motor_39" model="dasii.item">
+            <field name="item_no">39</field>
+            <field name="description">Stands up by furniture</field>
+            <field name="scale">motor</field>
+            <field name="age_50">7.9</field>
+            <field name="age_3">6.4</field>
+            <field name="age_97">9.9</field>
+            <field name="cluster_id" ref="cluster_motor_II"/>
+        </record>
+        <record id="item_motor_40" model="dasii.item">
+            <field name="item_no">40</field>
+            <field name="description">Fine prehension - pellet</field>
+            <field name="scale">motor</field>
+            <field name="age_50">8.3</field>
+            <field name="age_3">6.9</field>
+            <field name="age_97">10.0</field>
+            <field name="cluster_id" ref="cluster_motor_V"/>
+        </record>
+        <record id="item_motor_41" model="dasii.item">
+            <field name="item_no">41</field>
+            <field name="description">Combines cubes or spoons Midline</field>
+            <field name="scale">motor</field>
+            <field name="age_50">8.5</field>
+            <field name="age_3">6.1</field>
+            <field name="age_97">9.9</field>
+            <field name="cluster_id" ref="cluster_motor_V"/>
+        </record>
+        <record id="item_motor_42" model="dasii.item">
+            <field name="item_no">42</field>
+            <field name="description">Walks with help</field>
+            <field name="scale">motor</field>
+            <field name="age_50">8.5</field>
+            <field name="age_3">6.9</field>
+            <field name="age_97">10.0</field>
+            <field name="cluster_id" ref="cluster_motor_III"/>
+        </record>
+        <record id="item_motor_43" model="dasii.item">
+            <field name="item_no">43</field>
+            <field name="description">Pat- a- cake, midline skill</field>
+            <field name="scale">motor</field>
+            <field name="age_50">8.7</field>
+            <field name="age_3">6.4</field>
+            <field name="age_97">10.1</field>
+            <field name="cluster_id" ref="cluster_motor_V"/>
+        </record>
+        <record id="item_motor_44" model="dasii.item">
+            <field name="item_no">44</field>
+            <field name="description">Sits down</field>
+            <field name="scale">motor</field>
+            <field name="age_50">9.3</field>
+            <field name="age_3">7.0</field>
+            <field name="age_97">12.2</field>
+            <field name="cluster_id" ref="cluster_motor_II"/>
+        </record>
+        <record id="item_motor_45" model="dasii.item">
+            <field name="item_no">45</field>
+            <field name="description">Stands alone for a few moments</field>
+            <field name="scale">motor</field>
+            <field name="age_50">10.1</field>
+            <field name="age_3">7.1</field>
+            <field name="age_97">12.2</field>
+            <field name="cluster_id" ref="cluster_motor_II"/>
+        </record>
+        <record id="item_motor_46" model="dasii.item">
+            <field name="item_no">46</field>
+            <field name="description">Stands up from supine position through</field>
+            <field name="scale">motor</field>
+            <field name="age_50">11.1</field>
+            <field name="age_3">7.1</field>
+            <field name="age_97">12.2</field>
+            <field name="cluster_id" ref="cluster_motor_II"/>
+        </record>
+        <record id="item_motor_47" model="dasii.item">
+            <field name="item_no">47</field>
+            <field name="description">Throws a ball – directed</field>
+            <field name="scale">motor</field>
+            <field name="age_50">11.6</field>
+            <field name="age_3">9.8</field>
+            <field name="age_97">15.2</field>
+            <field name="cluster_id" ref="cluster_motor_V"/>
+        </record>
+        <record id="item_motor_48" model="dasii.item">
+            <field name="item_no">48</field>
+            <field name="description">Walks alone a few steps</field>
+            <field name="scale">motor</field>
+            <field name="age_50">12.0</field>
+            <field name="age_3">7.9</field>
+            <field name="age_97">14.4</field>
+            <field name="cluster_id" ref="cluster_motor_III"/>
+        </record>
+        <record id="item_motor_49" model="dasii.item">
+            <field name="item_no">49</field>
+            <field name="description">Walks sideways</field>
+            <field name="scale">motor</field>
+            <field name="age_50">13.3</field>
+            <field name="age_3">11.0</field>
+            <field name="age_97">15.2</field>
+            <field name="cluster_id" ref="cluster_motor_III"/>
+        </record>
+        <record id="item_motor_50" model="dasii.item">
+            <field name="item_no">50</field>
+            <field name="description">Walks backwards</field>
+            <field name="scale">motor</field>
+            <field name="age_50">13.5</field>
+            <field name="age_3">11.2</field>
+            <field name="age_97">16.1</field>
+            <field name="cluster_id" ref="cluster_motor_III"/>
+        </record>
+        <record id="item_motor_51" model="dasii.item">
+            <field name="item_no">51</field>
+            <field name="description">Stands on right foot with help</field>
+            <field name="scale">motor</field>
+            <field name="age_50">13.9</field>
+            <field name="age_3">11.2</field>
+            <field name="age_97">17.3</field>
+            <field name="cluster_id" ref="cluster_motor_IV"/>
+        </record>
+        <record id="item_motor_52" model="dasii.item">
+            <field name="item_no">52</field>
+            <field name="description">Stands on left foot with help</field>
+            <field name="scale">motor</field>
+            <field name="age_50">13.9</field>
+            <field name="age_3">11.2</field>
+            <field name="age_97">17.4</field>
+            <field name="cluster_id" ref="cluster_motor_IV"/>
+        </record>
+        <record id="item_motor_53" model="dasii.item">
+            <field name="item_no">53</field>
+            <field name="description">Climbs up steps with help</field>
+            <field name="scale">motor</field>
+            <field name="age_50">14.8</field>
+            <field name="age_3">13.1</field>
+            <field name="age_97">21.4</field>
+            <field name="cluster_id" ref="cluster_motor_III"/>
+        </record>
+        <record id="item_motor_54" model="dasii.item">
+            <field name="item_no">54</field>
+            <field name="description">Walks down steps with help</field>
+            <field name="scale">motor</field>
+            <field name="age_50">16.6</field>
+            <field name="age_3">13.2</field>
+            <field name="age_97">21.3</field>
+            <field name="cluster_id" ref="cluster_motor_III"/>
+        </record>
+        <record id="item_motor_55" model="dasii.item">
+            <field name="item_no">55</field>
+            <field name="description">Tries to stand on walking board</field>
+            <field name="scale">motor</field>
+            <field name="age_50">19.2</field>
+            <field name="age_3">16.0</field>
+            <field name="age_97">24.1</field>
+            <field name="cluster_id" ref="cluster_motor_IV"/>
+        </record>
+        <record id="item_motor_56" model="dasii.item">
+            <field name="item_no">56</field>
+            <field name="description">From supine to erect through sideways turn</field>
+            <field name="scale">motor</field>
+            <field name="age_50">19.2</field>
+            <field name="age_3">16.3</field>
+            <field name="age_97">23.5</field>
+            <field name="cluster_id" ref="cluster_motor_II"/>
+        </record>
+        <record id="item_motor_57" model="dasii.item">
+            <field name="item_no">57</field>
+            <field name="description">Climbs down alone – one step at a time</field>
+            <field name="scale">motor</field>
+            <field name="age_50">22.1</field>
+            <field name="age_3">17.1</field>
+            <field name="age_97">27.3</field>
+            <field name="cluster_id" ref="cluster_motor_IV"/>
+        </record>
+        <record id="item_motor_58" model="dasii.item">
+            <field name="item_no">58</field>
+            <field name="description">Walks on line – 10 feet general direction</field>
+            <field name="scale">motor</field>
+            <field name="age_50">22.2</field>
+            <field name="age_3">20.8</field>
+            <field name="age_97">28.4</field>
+            <field name="cluster_id" ref="cluster_motor_IV"/>
+        </record>
+        <record id="item_motor_59" model="dasii.item">
+            <field name="item_no">59</field>
+            <field name="description">Climbs up – alone step by step</field>
+            <field name="scale">motor</field>
+            <field name="age_50">22.9</field>
+            <field name="age_3">19.2</field>
+            <field name="age_97">29.4</field>
+            <field name="cluster_id" ref="cluster_motor_IV"/>
+        </record>
+        <record id="item_motor_60" model="dasii.item">
+            <field name="item_no">60</field>
+            <field name="description">Walks on the board with one foot on</field>
+            <field name="scale">motor</field>
+            <field name="age_50">23.5</field>
+            <field name="age_3">20.8</field>
+            <field name="age_97">28.3</field>
+            <field name="cluster_id" ref="cluster_motor_IV"/>
+        </record>
+        <record id="item_motor_61" model="dasii.item">
+            <field name="item_no">61</field>
+            <field name="description">Stands on left foot alone</field>
+            <field name="scale">motor</field>
+            <field name="age_50">24.7</field>
+            <field name="age_3">21.9</field>
+            <field name="age_97">28.3</field>
+            <field name="cluster_id" ref="cluster_motor_IV"/>
+        </record>
+        <record id="item_motor_62" model="dasii.item">
+            <field name="item_no">62</field>
+            <field name="description">Stands on right foot alone</field>
+            <field name="scale">motor</field>
+            <field name="age_50">24.7</field>
+            <field name="age_3">21.9</field>
+            <field name="age_97">28.3</field>
+            <field name="cluster_id" ref="cluster_motor_IV"/>
+        </record>
+        <record id="item_motor_63" model="dasii.item">
+            <field name="item_no">63</field>
+            <field name="description">Jumps off floor – both feet together</field>
+            <field name="scale">motor</field>
+            <field name="age_50">25.7</field>
+            <field name="age_3">22.0</field>
+            <field name="age_97">29.4</field>
+            <field name="cluster_id" ref="cluster_motor_IV"/>
+        </record>
+        <record id="item_motor_64" model="dasii.item">
+            <field name="item_no">64</field>
+            <field name="description">Stands on walking board with both feet on</field>
+            <field name="scale">motor</field>
+            <field name="age_50">26.1</field>
+            <field name="age_3">21.0</field>
+            <field name="age_97">30.6</field>
+            <field name="cluster_id" ref="cluster_motor_IV"/>
+        </record>
+        <record id="item_motor_65" model="dasii.item">
+            <field name="item_no">65</field>
+            <field name="description">Walks on tip toe 4-5 steps</field>
+            <field name="scale">motor</field>
+            <field name="age_50">27.4</field>
+            <field name="age_3">22.0</field>
+            <field name="age_97">30.6</field>
+            <field name="cluster_id" ref="cluster_motor_IV"/>
+        </record>
+        <record id="item_motor_66" model="dasii.item">
+            <field name="item_no">66</field>
+            <field name="description">Jumps off from chair- both feet together</field>
+            <field name="scale">motor</field>
+            <field name="age_50">27.7</field>
+            <field name="age_3">22.2</field>
+            <field name="age_97">30.6</field>
+            <field name="cluster_id" ref="cluster_motor_IV"/>
+        </record>
+        <record id="item_motor_67" model="dasii.item">
+            <field name="item_no">67</field>
+            <field name="description">Supine to erect – without turning</field>
+            <field name="scale">motor</field>
+            <field name="age_50">27.7</field>
+            <field name="age_3">25.9</field>
+            <field name="age_97">30.6</field>
+            <field name="cluster_id" ref="cluster_motor_II"/>
+        </record>
+        <record id="item_mental_1" model="dasii.item">
+            <field name="item_no">1</field>
+            <field name="description">Responds to sound of bell</field>
+            <field name="scale">mental</field>
+            <field name="age_50">0.1</field>
+            <field name="age_3">0.1</field>
+            <field name="age_97">1.4</field>
+            <field name="cluster_id" ref="cluster_mental_II"/>
+        </record>
+        <record id="item_mental_2" model="dasii.item">
+            <field name="item_no">2</field>
+            <field name="description">Momentary regard of red ring</field>
+            <field name="scale">mental</field>
+            <field name="age_50">0.1</field>
+            <field name="age_3">0.1</field>
+            <field name="age_97">1.4</field>
+            <field name="cluster_id" ref="cluster_mental_I"/>
+        </record>
+        <record id="item_mental_3" model="dasii.item">
+            <field name="item_no">3</field>
+            <field name="description">Quiets when picked -up</field>
+            <field name="scale">mental</field>
+            <field name="age_50">0.1</field>
+            <field name="age_3">0.1</field>
+            <field name="age_97">1.4</field>
+            <field name="cluster_id" ref="cluster_mental_V"/>
+        </record>
+        <record id="item_mental_4" model="dasii.item">
+            <field name="item_no">4</field>
+            <field name="description">Responds to sound of rattle</field>
+            <field name="scale">mental</field>
+            <field name="age_50">0.1</field>
+            <field name="age_3">0.1</field>
+            <field name="age_97">1.4</field>
+            <field name="cluster_id" ref="cluster_mental_II"/>
+        </record>
+        <record id="item_mental_5" model="dasii.item">
+            <field name="item_no">5</field>
+            <field name="description">Responds to voice</field>
+            <field name="scale">mental</field>
+            <field name="age_50">0.1</field>
+            <field name="age_3">0.1</field>
+            <field name="age_97">1.4</field>
+            <field name="cluster_id" ref="cluster_mental_II"/>
+        </record>
+        <record id="item_mental_6" model="dasii.item">
+            <field name="item_no">6</field>
+            <field name="description">Responds to sound of light – switch</field>
+            <field name="scale">mental</field>
+            <field name="age_50">0.1</field>
+            <field name="age_3">0.1</field>
+            <field name="age_97">1.4</field>
+            <field name="cluster_id" ref="cluster_mental_II"/>
+        </record>
+        <record id="item_mental_7" model="dasii.item">
+            <field name="item_no">7</field>
+            <field name="description">Regards a person momentarily – count 3</field>
+            <field name="scale">mental</field>
+            <field name="age_50">0.2</field>
+            <field name="age_3">0.1</field>
+            <field name="age_97">1.4</field>
+            <field name="cluster_id" ref="cluster_mental_I"/>
+        </record>
+        <record id="item_mental_8" model="dasii.item">
+            <field name="item_no">8</field>
+            <field name="description">Horizontal eye co ordination - red ring</field>
+            <field name="scale">mental</field>
+            <field name="age_50">0.6</field>
+            <field name="age_3">0.1</field>
+            <field name="age_97">1.4</field>
+            <field name="cluster_id" ref="cluster_mental_I"/>
+        </record>
+        <record id="item_mental_9" model="dasii.item">
+            <field name="item_no">9</field>
+            <field name="description">Circular eye co ordination - red ring</field>
+            <field name="scale">mental</field>
+            <field name="age_50">0.6</field>
+            <field name="age_3">0.1</field>
+            <field name="age_97">2.5</field>
+            <field name="cluster_id" ref="cluster_mental_I"/>
+        </record>
+        <record id="item_mental_10" model="dasii.item">
+            <field name="item_no">10</field>
+            <field name="description">Follows moving person</field>
+            <field name="scale">mental</field>
+            <field name="age_50">0.7</field>
+            <field name="age_3">0.1</field>
+            <field name="age_97">1.4</field>
+            <field name="cluster_id" ref="cluster_mental_I"/>
+        </record>
+        <record id="item_mental_11" model="dasii.item">
+            <field name="item_no">11</field>
+            <field name="description">Horizontal eye co ordination red light</field>
+            <field name="scale">mental</field>
+            <field name="age_50">0.7</field>
+            <field name="age_3">0.1</field>
+            <field name="age_97">1.5</field>
+            <field name="cluster_id" ref="cluster_mental_I"/>
+        </record>
+        <record id="item_mental_12" model="dasii.item">
+            <field name="item_no">12</field>
+            <field name="description">Vertical eye co ordination red light (Torch)</field>
+            <field name="scale">mental</field>
+            <field name="age_50">0.7</field>
+            <field name="age_3">0.1</field>
+            <field name="age_97">2.4</field>
+            <field name="cluster_id" ref="cluster_mental_I"/>
+        </record>
+        <record id="item_mental_13" model="dasii.item">
+            <field name="item_no">13</field>
+            <field name="description">Vertical eye co ordination red ring</field>
+            <field name="scale">mental</field>
+            <field name="age_50">0.7</field>
+            <field name="age_3">0.1</field>
+            <field name="age_97">2.5</field>
+            <field name="cluster_id" ref="cluster_mental_I"/>
+        </record>
+        <record id="item_mental_14" model="dasii.item">
+            <field name="item_no">14</field>
+            <field name="description">Prolonged regard of red ring (Count 30)</field>
+            <field name="scale">mental</field>
+            <field name="age_50">0.8</field>
+            <field name="age_3">0.1</field>
+            <field name="age_97">1.4</field>
+            <field name="cluster_id" ref="cluster_mental_I"/>
+        </record>
+        <record id="item_mental_15" model="dasii.item">
+            <field name="item_no">15</field>
+            <field name="description">Vocalizes once – twice</field>
+            <field name="scale">mental</field>
+            <field name="age_50">0.8</field>
+            <field name="age_3">0.1</field>
+            <field name="age_97">1.5</field>
+            <field name="cluster_id" ref="cluster_mental_VI"/>
+        </record>
+        <record id="item_mental_16" model="dasii.item">
+            <field name="item_no">16</field>
+            <field name="description">Free inspection of surroundings</field>
+            <field name="scale">mental</field>
+            <field name="age_50">0.8</field>
+            <field name="age_3">0.1</field>
+            <field name="age_97">1.4</field>
+            <field name="cluster_id" ref="cluster_mental_I"/>
+        </record>
+        <record id="item_mental_17" model="dasii.item">
+            <field name="item_no">17</field>
+            <field name="description">Circular eye co ordination red light (Torch)</field>
+            <field name="scale">mental</field>
+            <field name="age_50">1.0</field>
+            <field name="age_3">0.1</field>
+            <field name="age_97">2.5</field>
+            <field name="cluster_id" ref="cluster_mental_I"/>
+        </record>
+        <record id="item_mental_18" model="dasii.item">
+            <field name="item_no">18</field>
+            <field name="description">Turns eyes to red ring</field>
+            <field name="scale">mental</field>
+            <field name="age_50">1.4</field>
+            <field name="age_3">0.6</field>
+            <field name="age_97">2.6</field>
+            <field name="cluster_id" ref="cluster_mental_I"/>
+        </record>
+        <record id="item_mental_19" model="dasii.item">
+            <field name="item_no">19</field>
+            <field name="description">Vocalizes more than three times</field>
+            <field name="scale">mental</field>
+            <field name="age_50">1.5</field>
+            <field name="age_3">0.2</field>
+            <field name="age_97">2.6</field>
+            <field name="cluster_id" ref="cluster_mental_VI"/>
+        </record>
+        <record id="item_mental_20" model="dasii.item">
+            <field name="item_no">20</field>
+            <field name="description">Social smile – Tester (T) nods, talks – child</field>
+            <field name="scale">mental</field>
+            <field name="age_50">1.6</field>
+            <field name="age_3">0.2</field>
+            <field name="age_97">2.6</field>
+            <field name="cluster_id" ref="cluster_mental_V"/>
+        </record>
+        <record id="item_mental_21" model="dasii.item">
+            <field name="item_no">21</field>
+            <field name="description">Anticipatory excitement to being lifted</field>
+            <field name="scale">mental</field>
+            <field name="age_50">1.6</field>
+            <field name="age_3">0.5</field>
+            <field name="age_97">2.6</field>
+            <field name="cluster_id" ref="cluster_mental_V"/>
+        </record>
+        <record id="item_mental_22" model="dasii.item">
+            <field name="item_no">22</field>
+            <field name="description">Reacts to paper on face</field>
+            <field name="scale">mental</field>
+            <field name="age_50">1.6</field>
+            <field name="age_3">0.1</field>
+            <field name="age_97">2.6</field>
+            <field name="cluster_id" ref="cluster_mental_I"/>
+        </record>
+        <record id="item_mental_23" model="dasii.item">
+            <field name="item_no">23</field>
+            <field name="description">Searches with eyes for sound</field>
+            <field name="scale">mental</field>
+            <field name="age_50">1.6</field>
+            <field name="age_3">0.2</field>
+            <field name="age_97">2.6</field>
+            <field name="cluster_id" ref="cluster_mental_II"/>
+        </record>
+        <record id="item_mental_24" model="dasii.item">
+            <field name="item_no">24</field>
+            <field name="description">Social smile - ‘T’ smiles child quiets</field>
+            <field name="scale">mental</field>
+            <field name="age_50">1.6</field>
+            <field name="age_3">0.5</field>
+            <field name="age_97">2.6</field>
+            <field name="cluster_id" ref="cluster_mental_V"/>
+        </record>
+        <record id="item_mental_25" model="dasii.item">
+            <field name="item_no">25</field>
+            <field name="description">Turns eyes to light</field>
+            <field name="scale">mental</field>
+            <field name="age_50">1.6</field>
+            <field name="age_3">0.6</field>
+            <field name="age_97">2.6</field>
+            <field name="cluster_id" ref="cluster_mental_I"/>
+        </record>
+        <record id="item_mental_26" model="dasii.item">
+            <field name="item_no">26</field>
+            <field name="description">Visually recognizes mother</field>
+            <field name="scale">mental</field>
+            <field name="age_50">1.6</field>
+            <field name="age_3">1.0</field>
+            <field name="age_97">3.1</field>
+            <field name="cluster_id" ref="cluster_mental_IV"/>
+        </record>
+        <record id="item_mental_27" model="dasii.item">
+            <field name="item_no">27</field>
+            <field name="description">Vocalizes to ‘T’s social smile and talk</field>
+            <field name="scale">mental</field>
+            <field name="age_50">1.7</field>
+            <field name="age_3">0.7</field>
+            <field name="age_97">2.6</field>
+            <field name="cluster_id" ref="cluster_mental_V"/>
+        </record>
+        <record id="item_mental_28" model="dasii.item">
+            <field name="item_no">28</field>
+            <field name="description">Anticipatory adjustment to being lifted</field>
+            <field name="scale">mental</field>
+            <field name="age_50">1.8</field>
+            <field name="age_3">1.1</field>
+            <field name="age_97">3.2</field>
+            <field name="cluster_id" ref="cluster_mental_V"/>
+        </record>
+        <record id="item_mental_29" model="dasii.item">
+            <field name="item_no">29</field>
+            <field name="description">Vocalizes two syllables</field>
+            <field name="scale">mental</field>
+            <field name="age_50">2.0</field>
+            <field name="age_3">0.9</field>
+            <field name="age_97">3.3</field>
+            <field name="cluster_id" ref="cluster_mental_VI"/>
+        </record>
+        <record id="item_mental_30" model="dasii.item">
+            <field name="item_no">30</field>
+            <field name="description">Reacts to disappearance of face</field>
+            <field name="scale">mental</field>
+            <field name="age_50">2.0</field>
+            <field name="age_3">1.0</field>
+            <field name="age_97">3.2</field>
+            <field name="cluster_id" ref="cluster_mental_IV"/>
+        </record>
+        <record id="item_mental_31" model="dasii.item">
+            <field name="item_no">31</field>
+            <field name="description">Blinks at shadow of hand</field>
+            <field name="scale">mental</field>
+            <field name="age_50">2.3</field>
+            <field name="age_3">0.6</field>
+            <field name="age_97">3.3</field>
+            <field name="cluster_id" ref="cluster_mental_I"/>
+        </record>
+        <record id="item_mental_32" model="dasii.item">
+            <field name="item_no">32</field>
+            <field name="description">Eyes follow pencil (yellow)</field>
+            <field name="scale">mental</field>
+            <field name="age_50">2.3</field>
+            <field name="age_3">0.9</field>
+            <field name="age_97">3.3</field>
+            <field name="cluster_id" ref="cluster_mental_I"/>
+        </record>
+        <record id="item_mental_33" model="dasii.item">
+            <field name="item_no">33</field>
+            <field name="description">Regards cube (red)</field>
+            <field name="scale">mental</field>
+            <field name="age_50">2.5</field>
+            <field name="age_3">1.2</field>
+            <field name="age_97">3.9</field>
+            <field name="cluster_id" ref="cluster_mental_I"/>
+        </record>
+        <record id="item_mental_34" model="dasii.item">
+            <field name="item_no">34</field>
+            <field name="description">Glances from one object to another</field>
+            <field name="scale">mental</field>
+            <field name="age_50">2.5</field>
+            <field name="age_3">1.2</field>
+            <field name="age_97">3.9</field>
+            <field name="cluster_id" ref="cluster_mental_III"/>
+        </record>
+        <record id="item_mental_35" model="dasii.item">
+            <field name="item_no">35</field>
+            <field name="description">Manipulates red-ring</field>
+            <field name="scale">mental</field>
+            <field name="age_50">2.7</field>
+            <field name="age_3">1.2</field>
+            <field name="age_97">4.3</field>
+            <field name="cluster_id" ref="cluster_mental_III"/>
+        </record>
+        <record id="item_mental_36" model="dasii.item">
+            <field name="item_no">36</field>
+            <field name="description">Reaches for dangling ring</field>
+            <field name="scale">mental</field>
+            <field name="age_50">2.7</field>
+            <field name="age_3">1.4</field>
+            <field name="age_97">4.3</field>
+            <field name="cluster_id" ref="cluster_mental_III"/>
+        </record>
+        <record id="item_mental_37" model="dasii.item">
+            <field name="item_no">37</field>
+            <field name="description">Simple play with rattle</field>
+            <field name="scale">mental</field>
+            <field name="age_50">2.7</field>
+            <field name="age_3">1.1</field>
+            <field name="age_97">4.2</field>
+            <field name="cluster_id" ref="cluster_mental_III"/>
+        </record>
+        <record id="item_mental_38" model="dasii.item">
+            <field name="item_no">38</field>
+            <field name="description">Follows vanishing spoon</field>
+            <field name="scale">mental</field>
+            <field name="age_50">2.7</field>
+            <field name="age_3">1.4</field>
+            <field name="age_97">4.3</field>
+            <field name="cluster_id" ref="cluster_mental_I"/>
+        </record>
+        <record id="item_mental_39" model="dasii.item">
+            <field name="item_no">39</field>
+            <field name="description">Aware of strange situation</field>
+            <field name="scale">mental</field>
+            <field name="age_50">2.7</field>
+            <field name="age_3">1.4</field>
+            <field name="age_97">4.3</field>
+            <field name="cluster_id" ref="cluster_mental_IV"/>
+        </record>
+        <record id="item_mental_40" model="dasii.item">
+            <field name="item_no">40</field>
+            <field name="description">Eyes follow ball across table</field>
+            <field name="scale">mental</field>
+            <field name="age_50">2.7</field>
+            <field name="age_3">1.4</field>
+            <field name="age_97">4.3</field>
+            <field name="cluster_id" ref="cluster_mental_I"/>
+        </record>
+        <record id="item_mental_41" model="dasii.item">
+            <field name="item_no">41</field>
+            <field name="description">Fingers hands in play</field>
+            <field name="scale">mental</field>
+            <field name="age_50">2.8</field>
+            <field name="age_3">1.4</field>
+            <field name="age_97">4.3</field>
+            <field name="cluster_id" ref="cluster_mental_III"/>
+        </record>
+        <record id="item_mental_42" model="dasii.item">
+            <field name="item_no">42</field>
+            <field name="description">Manipulates table edge slightly</field>
+            <field name="scale">mental</field>
+            <field name="age_50">2.8</field>
+            <field name="age_3">1.7</field>
+            <field name="age_97">4.3</field>
+            <field name="cluster_id" ref="cluster_mental_III"/>
+        </record>
+        <record id="item_mental_43" model="dasii.item">
+            <field name="item_no">43</field>
+            <field name="description">Carries red ring to mouth</field>
+            <field name="scale">mental</field>
+            <field name="age_50">2.9</field>
+            <field name="age_3">1.7</field>
+            <field name="age_97">4.3</field>
+            <field name="cluster_id" ref="cluster_mental_III"/>
+        </record>
+        <record id="item_mental_44" model="dasii.item">
+            <field name="item_no">44</field>
+            <field name="description">Follows vanishing red ring - dangling</field>
+            <field name="scale">mental</field>
+            <field name="age_50">2.9</field>
+            <field name="age_3">1.4</field>
+            <field name="age_97">4.3</field>
+            <field name="cluster_id" ref="cluster_mental_I"/>
+        </record>
+        <record id="item_mental_45" model="dasii.item">
+            <field name="item_no">45</field>
+            <field name="description">Turns head to sound of bell</field>
+            <field name="scale">mental</field>
+            <field name="age_50">3.2</field>
+            <field name="age_3">1.8</field>
+            <field name="age_97">4.7</field>
+            <field name="cluster_id" ref="cluster_mental_II"/>
+        </record>
+        <record id="item_mental_46" model="dasii.item">
+            <field name="item_no">46</field>
+            <field name="description">Turns head to sound of rattle</field>
+            <field name="scale">mental</field>
+            <field name="age_50">3.2</field>
+            <field name="age_3">1.6</field>
+            <field name="age_97">4.7</field>
+            <field name="cluster_id" ref="cluster_mental_II"/>
+        </record>
+        <record id="item_mental_47" model="dasii.item">
+            <field name="item_no">47</field>
+            <field name="description">Inspects own hands</field>
+            <field name="scale">mental</field>
+            <field name="age_50">3.3</field>
+            <field name="age_3">1.8</field>
+            <field name="age_97">5.0</field>
+            <field name="cluster_id" ref="cluster_mental_I"/>
+        </record>
+        <record id="item_mental_48" model="dasii.item">
+            <field name="item_no">48</field>
+            <field name="description">Mirror image – approach</field>
+            <field name="scale">mental</field>
+            <field name="age_50">3.3</field>
+            <field name="age_3">1.8</field>
+            <field name="age_97">5.5</field>
+            <field name="cluster_id" ref="cluster_mental_V"/>
+        </record>
+        <record id="item_mental_49" model="dasii.item">
+            <field name="item_no">49</field>
+            <field name="description">Active table edge manipulation</field>
+            <field name="scale">mental</field>
+            <field name="age_50">3.3</field>
+            <field name="age_3">1.8</field>
+            <field name="age_97">5.5</field>
+            <field name="cluster_id" ref="cluster_mental_III"/>
+        </record>
+        <record id="item_mental_50" model="dasii.item">
+            <field name="item_no">50</field>
+            <field name="description">Closes on dangling red ring</field>
+            <field name="scale">mental</field>
+            <field name="age_50">3.6</field>
+            <field name="age_3">1.8</field>
+            <field name="age_97">5.5</field>
+            <field name="cluster_id" ref="cluster_mental_III"/>
+        </record>
+        <record id="item_mental_51" model="dasii.item">
+            <field name="item_no">51</field>
+            <field name="description">Reaches for cube</field>
+            <field name="scale">mental</field>
+            <field name="age_50">3.6</field>
+            <field name="age_3">1.8</field>
+            <field name="age_97">5.5</field>
+            <field name="cluster_id" ref="cluster_mental_III"/>
+        </record>
+        <record id="item_mental_52" model="dasii.item">
+            <field name="item_no">52</field>
+            <field name="description">Likes frolic play</field>
+            <field name="scale">mental</field>
+            <field name="age_50">3.9</field>
+            <field name="age_3">2.8</field>
+            <field name="age_97">5.8</field>
+            <field name="cluster_id" ref="cluster_mental_V"/>
+        </record>
+        <record id="item_mental_53" model="dasii.item">
+            <field name="item_no">53</field>
+            <field name="description">Explorative paper play</field>
+            <field name="scale">mental</field>
+            <field name="age_50">4.0</field>
+            <field name="age_3">2.8</field>
+            <field name="age_97">5.5</field>
+            <field name="cluster_id" ref="cluster_mental_III"/>
+        </record>
+        <record id="item_mental_54" model="dasii.item">
+            <field name="item_no">54</field>
+            <field name="description">Regards pellet</field>
+            <field name="scale">mental</field>
+            <field name="age_50">4.0</field>
+            <field name="age_3">2.8</field>
+            <field name="age_97">5.5</field>
+            <field name="cluster_id" ref="cluster_mental_I"/>
+        </record>
+        <record id="item_mental_55" model="dasii.item">
+            <field name="item_no">55</field>
+            <field name="description">Retains two cubes</field>
+            <field name="scale">mental</field>
+            <field name="age_50">4.0</field>
+            <field name="age_3">2.8</field>
+            <field name="age_97">5.8</field>
+            <field name="cluster_id" ref="cluster_mental_III"/>
+        </record>
+        <record id="item_mental_56" model="dasii.item">
+            <field name="item_no">56</field>
+            <field name="description">Eye co- operation in reaching</field>
+            <field name="scale">mental</field>
+            <field name="age_50">4.1</field>
+            <field name="age_3">2.6</field>
+            <field name="age_97">5.6</field>
+            <field name="cluster_id" ref="cluster_mental_III"/>
+        </record>
+        <record id="item_mental_57" model="dasii.item">
+            <field name="item_no">57</field>
+            <field name="description">Vocalizes attitudes</field>
+            <field name="scale">mental</field>
+            <field name="age_50">4.2</field>
+            <field name="age_3">2.6</field>
+            <field name="age_97">6.2</field>
+            <field name="cluster_id" ref="cluster_mental_VI"/>
+        </record>
+        <record id="item_mental_58" model="dasii.item">
+            <field name="item_no">58</field>
+            <field name="description">Discriminates strangers</field>
+            <field name="scale">mental</field>
+            <field name="age_50">4.3</field>
+            <field name="age_3">2.8</field>
+            <field name="age_97">6.4</field>
+            <field name="cluster_id" ref="cluster_mental_V"/>
+        </record>
+        <record id="item_mental_59" model="dasii.item">
+            <field name="item_no">59</field>
+            <field name="description">Picks up cube</field>
+            <field name="scale">mental</field>
+            <field name="age_50">4.4</field>
+            <field name="age_3">2.8</field>
+            <field name="age_97">6.4</field>
+            <field name="cluster_id" ref="cluster_mental_III"/>
+        </record>
+        <record id="item_mental_60" model="dasii.item">
+            <field name="item_no">60</field>
+            <field name="description">Sustained inspection of red ring</field>
+            <field name="scale">mental</field>
+            <field name="age_50">4.4</field>
+            <field name="age_3">2.9</field>
+            <field name="age_97">6.4</field>
+            <field name="cluster_id" ref="cluster_mental_I"/>
+        </record>
+        <record id="item_mental_61" model="dasii.item">
+            <field name="item_no">61</field>
+            <field name="description">Turns head after fallen spoon</field>
+            <field name="scale">mental</field>
+            <field name="age_50">4.6</field>
+            <field name="age_3">2.9</field>
+            <field name="age_97">6.5</field>
+            <field name="cluster_id" ref="cluster_mental_IV"/>
+        </record>
+        <record id="item_mental_62" model="dasii.item">
+            <field name="item_no">62</field>
+            <field name="description">Recovers rattle fallen from hand</field>
+            <field name="scale">mental</field>
+            <field name="age_50">4.7</field>
+            <field name="age_3">3.1</field>
+            <field name="age_97">6.5</field>
+            <field name="cluster_id" ref="cluster_mental_IV"/>
+        </record>
+        <record id="item_mental_63" model="dasii.item">
+            <field name="item_no">63</field>
+            <field name="description">Lifts cup</field>
+            <field name="scale">mental</field>
+            <field name="age_50">4.7</field>
+            <field name="age_3">3.5</field>
+            <field name="age_97">6.5</field>
+            <field name="cluster_id" ref="cluster_mental_III"/>
+        </record>
+        <record id="item_mental_64" model="dasii.item">
+            <field name="item_no">64</field>
+            <field name="description">Reaches persistently</field>
+            <field name="scale">mental</field>
+            <field name="age_50">4.8</field>
+            <field name="age_3">3.1</field>
+            <field name="age_97">6.5</field>
+            <field name="cluster_id" ref="cluster_mental_III"/>
+        </record>
+        <record id="item_mental_65" model="dasii.item">
+            <field name="item_no">65</field>
+            <field name="description">Smiles at mirror image</field>
+            <field name="scale">mental</field>
+            <field name="age_50">4.8</field>
+            <field name="age_3">3.8</field>
+            <field name="age_97">6.5</field>
+            <field name="cluster_id" ref="cluster_mental_V"/>
+        </record>
+        <record id="item_mental_66" model="dasii.item">
+            <field name="item_no">66</field>
+            <field name="description">Reaches for second cube</field>
+            <field name="scale">mental</field>
+            <field name="age_50">5.1</field>
+            <field name="age_3">3.8</field>
+            <field name="age_97">6.3</field>
+            <field name="cluster_id" ref="cluster_mental_III"/>
+        </record>
+        <record id="item_mental_67" model="dasii.item">
+            <field name="item_no">67</field>
+            <field name="description">Explorative string play</field>
+            <field name="scale">mental</field>
+            <field name="age_50">5.1</field>
+            <field name="age_3">3.9</field>
+            <field name="age_97">6.5</field>
+            <field name="cluster_id" ref="cluster_mental_III"/>
+        </record>
+        <record id="item_mental_68" model="dasii.item">
+            <field name="item_no">68</field>
+            <field name="description">Bangs in play</field>
+            <field name="scale">mental</field>
+            <field name="age_50">5.3</field>
+            <field name="age_3">3.9</field>
+            <field name="age_97">6.6</field>
+            <field name="cluster_id" ref="cluster_mental_III"/>
+        </record>
+        <record id="item_mental_69" model="dasii.item">
+            <field name="item_no">69</field>
+            <field name="description">Interest in sound production</field>
+            <field name="scale">mental</field>
+            <field name="age_50">5.4</field>
+            <field name="age_3">3.9</field>
+            <field name="age_97">6.6</field>
+            <field name="cluster_id" ref="cluster_mental_III"/>
+        </record>
+        <record id="item_mental_70" model="dasii.item">
+            <field name="item_no">70</field>
+            <field name="description">Transfers object hand to hand</field>
+            <field name="scale">mental</field>
+            <field name="age_50">5.4</field>
+            <field name="age_3">3.9</field>
+            <field name="age_97">7.4</field>
+            <field name="cluster_id" ref="cluster_mental_III"/>
+        </record>
+        <record id="item_mental_71" model="dasii.item">
+            <field name="item_no">71</field>
+            <field name="description">Picks up cube deftly and directly</field>
+            <field name="scale">mental</field>
+            <field name="age_50">5.6</field>
+            <field name="age_3">4.0</field>
+            <field name="age_97">7.4</field>
+            <field name="cluster_id" ref="cluster_mental_III"/>
+        </record>
+        <record id="item_mental_72" model="dasii.item">
+            <field name="item_no">72</field>
+            <field name="description">Lifts cup by handle</field>
+            <field name="scale">mental</field>
+            <field name="age_50">5.6</field>
+            <field name="age_3">4.0</field>
+            <field name="age_97">7.4</field>
+            <field name="cluster_id" ref="cluster_mental_III"/>
+        </record>
+        <record id="item_mental_73" model="dasii.item">
+            <field name="item_no">73</field>
+            <field name="description">Pulls string and secures red ring</field>
+            <field name="scale">mental</field>
+            <field name="age_50">5.6</field>
+            <field name="age_3">4.2</field>
+            <field name="age_97">7.4</field>
+            <field name="cluster_id" ref="cluster_mental_III"/>
+        </record>
+        <record id="item_mental_74" model="dasii.item">
+            <field name="item_no">74</field>
+            <field name="description">Looks for fallen spoon</field>
+            <field name="scale">mental</field>
+            <field name="age_50">5.7</field>
+            <field name="age_3">4.7</field>
+            <field name="age_97">7.4</field>
+            <field name="cluster_id" ref="cluster_mental_IV"/>
+        </record>
+        <record id="item_mental_75" model="dasii.item">
+            <field name="item_no">75</field>
+            <field name="description">Retains two of three cubes offered</field>
+            <field name="scale">mental</field>
+            <field name="age_50">5.7</field>
+            <field name="age_3">4.7</field>
+            <field name="age_97">8.0</field>
+            <field name="cluster_id" ref="cluster_mental_III"/>
+        </record>
+        <record id="item_mental_76" model="dasii.item">
+            <field name="item_no">76</field>
+            <field name="description">Playful response to mirror</field>
+            <field name="scale">mental</field>
+            <field name="age_50">5.7</field>
+            <field name="age_3">4.7</field>
+            <field name="age_97">8.0</field>
+            <field name="cluster_id" ref="cluster_mental_V"/>
+        </record>
+        <record id="item_mental_77" model="dasii.item">
+            <field name="item_no">77</field>
+            <field name="description">Attempts to secure three cubes</field>
+            <field name="scale">mental</field>
+            <field name="age_50">5.9</field>
+            <field name="age_3">4.8</field>
+            <field name="age_97">9.3</field>
+            <field name="cluster_id" ref="cluster_mental_III"/>
+        </record>
+        <record id="item_mental_78" model="dasii.item">
+            <field name="item_no">78</field>
+            <field name="description">Co- operates in games</field>
+            <field name="scale">mental</field>
+            <field name="age_50">6.1</field>
+            <field name="age_3">4.8</field>
+            <field name="age_97">8.0</field>
+            <field name="cluster_id" ref="cluster_mental_V"/>
+        </record>
+        <record id="item_mental_79" model="dasii.item">
+            <field name="item_no">79</field>
+            <field name="description">Manipulates bell interest in details</field>
+            <field name="scale">mental</field>
+            <field name="age_50">6.2</field>
+            <field name="age_3">4.8</field>
+            <field name="age_97">7.5</field>
+            <field name="cluster_id" ref="cluster_mental_III"/>
+        </record>
+        <record id="item_mental_80" model="dasii.item">
+            <field name="item_no">80</field>
+            <field name="description">Pulls string adaptively &amp; secure red ring</field>
+            <field name="scale">mental</field>
+            <field name="age_50">6.4</field>
+            <field name="age_3">4.8</field>
+            <field name="age_97">8.0</field>
+            <field name="cluster_id" ref="cluster_mental_VIII"/>
+        </record>
+        <record id="item_mental_81" model="dasii.item">
+            <field name="item_no">81</field>
+            <field name="description">Listens selectively to familiar words</field>
+            <field name="scale">mental</field>
+            <field name="age_50">6.4</field>
+            <field name="age_3">5.0</field>
+            <field name="age_97">9.0</field>
+            <field name="cluster_id" ref="cluster_mental_VII"/>
+        </record>
+        <record id="item_mental_82" model="dasii.item">
+            <field name="item_no">82</field>
+            <field name="description">Vocalizes four different syllables</field>
+            <field name="scale">mental</field>
+            <field name="age_50">6.4</field>
+            <field name="age_3">4.9</field>
+            <field name="age_97">8.5</field>
+            <field name="cluster_id" ref="cluster_mental_VI"/>
+        </record>
+        <record id="item_mental_83" model="dasii.item">
+            <field name="item_no">83</field>
+            <field name="description">Uncovers toy</field>
+            <field name="scale">mental</field>
+            <field name="age_50">6.5</field>
+            <field name="age_3">4.8</field>
+            <field name="age_97">9.1</field>
+            <field name="cluster_id" ref="cluster_mental_IV"/>
+        </record>
+        <record id="item_mental_84" model="dasii.item">
+            <field name="item_no">84</field>
+            <field name="description">Attends to scribbling</field>
+            <field name="scale">mental</field>
+            <field name="age_50">6.7</field>
+            <field name="age_3">5.0</field>
+            <field name="age_97">8.5</field>
+            <field name="cluster_id" ref="cluster_mental_I"/>
+        </record>
+        <record id="item_mental_85" model="dasii.item">
+            <field name="item_no">85</field>
+            <field name="description">Rings bell purposefully</field>
+            <field name="scale">mental</field>
+            <field name="age_50">7.4</field>
+            <field name="age_3">6.0</field>
+            <field name="age_97">9.3</field>
+            <field name="cluster_id" ref="cluster_mental_IX"/>
+        </record>
+        <record id="item_mental_86" model="dasii.item">
+            <field name="item_no">86</field>
+            <field name="description">Says ‘da-da’ or equivalent</field>
+            <field name="scale">mental</field>
+            <field name="age_50">8.1</field>
+            <field name="age_3">6.4</field>
+            <field name="age_97">9.8</field>
+            <field name="cluster_id" ref="cluster_mental_VI"/>
+        </record>
+        <record id="item_mental_87" model="dasii.item">
+            <field name="item_no">87</field>
+            <field name="description">Picks up cup and secures TOY</field>
+            <field name="scale">mental</field>
+            <field name="age_50">8.1</field>
+            <field name="age_3">6.8</field>
+            <field name="age_97">9.4</field>
+            <field name="cluster_id" ref="cluster_mental_IV"/>
+        </record>
+        <record id="item_mental_88" model="dasii.item">
+            <field name="item_no">88</field>
+            <field name="description">Adjusts to words</field>
+            <field name="scale">mental</field>
+            <field name="age_50">8.2</field>
+            <field name="age_3">6.1</field>
+            <field name="age_97">9.4</field>
+            <field name="cluster_id" ref="cluster_mental_VII"/>
+        </record>
+        <record id="item_mental_89" model="dasii.item">
+            <field name="item_no">89</field>
+            <field name="description">Fingers holes in peg board</field>
+            <field name="scale">mental</field>
+            <field name="age_50">8.7</field>
+            <field name="age_3">6.4</field>
+            <field name="age_97">11.1</field>
+            <field name="cluster_id" ref="cluster_mental_III"/>
+        </record>
+        <record id="item_mental_90" model="dasii.item">
+            <field name="item_no">90</field>
+            <field name="description">Looks at pictures in book</field>
+            <field name="scale">mental</field>
+            <field name="age_50">8.8</field>
+            <field name="age_3">7.0</field>
+            <field name="age_97">10.1</field>
+            <field name="cluster_id" ref="cluster_mental_I"/>
+        </record>
+        <record id="item_mental_91" model="dasii.item">
+            <field name="item_no">91</field>
+            <field name="description">Looks for contents of box</field>
+            <field name="scale">mental</field>
+            <field name="age_50">8.9</field>
+            <field name="age_3">7.0</field>
+            <field name="age_97">11.1</field>
+            <field name="cluster_id" ref="cluster_mental_IV"/>
+        </record>
+        <record id="item_mental_92" model="dasii.item">
+            <field name="item_no">92</field>
+            <field name="description">Inhibits on command</field>
+            <field name="scale">mental</field>
+            <field name="age_50">9.4</field>
+            <field name="age_3">7.0</field>
+            <field name="age_97">11.1</field>
+            <field name="cluster_id" ref="cluster_mental_VII"/>
+        </record>
+        <record id="item_mental_93" model="dasii.item">
+            <field name="item_no">93</field>
+            <field name="description">Puts cube in cup on command</field>
+            <field name="scale">mental</field>
+            <field name="age_50">9.7</field>
+            <field name="age_3">7.3</field>
+            <field name="age_97">11.3</field>
+            <field name="cluster_id" ref="cluster_mental_VII"/>
+        </record>
+        <record id="item_mental_94" model="dasii.item">
+            <field name="item_no">94</field>
+            <field name="description">Uses expressive JARGON</field>
+            <field name="scale">mental</field>
+            <field name="age_50">9.9</field>
+            <field name="age_3">7.0</field>
+            <field name="age_97">11.2</field>
+            <field name="cluster_id" ref="cluster_mental_VI"/>
+        </record>
+        <record id="item_mental_95" model="dasii.item">
+            <field name="item_no">95</field>
+            <field name="description">Repeats performance laughed at</field>
+            <field name="scale">mental</field>
+            <field name="age_50">10.0</field>
+            <field name="age_3">7.3</field>
+            <field name="age_97">12.2</field>
+            <field name="cluster_id" ref="cluster_mental_V"/>
+        </record>
+        <record id="item_mental_96" model="dasii.item">
+            <field name="item_no">96</field>
+            <field name="description">Holds color – stick adaptively</field>
+            <field name="scale">mental</field>
+            <field name="age_50">10.0</field>
+            <field name="age_3">7.3</field>
+            <field name="age_97">11.3</field>
+            <field name="cluster_id" ref="cluster_mental_IX"/>
+        </record>
+        <record id="item_mental_97" model="dasii.item">
+            <field name="item_no">97</field>
+            <field name="description">Unwraps cube</field>
+            <field name="scale">mental</field>
+            <field name="age_50">10.2</field>
+            <field name="age_3">7.3</field>
+            <field name="age_97">11.3</field>
+            <field name="cluster_id" ref="cluster_mental_IV"/>
+        </record>
+        <record id="item_mental_98" model="dasii.item">
+            <field name="item_no">98</field>
+            <field name="description">Turns pages of book</field>
+            <field name="scale">mental</field>
+            <field name="age_50">10.4</field>
+            <field name="age_3">8.3</field>
+            <field name="age_97">11.3</field>
+            <field name="cluster_id" ref="cluster_mental_III"/>
+        </record>
+        <record id="item_mental_99" model="dasii.item">
+            <field name="item_no">99</field>
+            <field name="description">Stirs spoon in cup in imitation</field>
+            <field name="scale">mental</field>
+            <field name="age_50">10.6</field>
+            <field name="age_3">9.2</field>
+            <field name="age_97">12.2</field>
+            <field name="cluster_id" ref="cluster_mental_V"/>
+        </record>
+        <record id="item_mental_100" model="dasii.item">
+            <field name="item_no">100</field>
+            <field name="description">Attempts to imitate scribble</field>
+            <field name="scale">mental</field>
+            <field name="age_50">10.7</field>
+            <field name="age_3">9.2</field>
+            <field name="age_97">12.4</field>
+            <field name="cluster_id" ref="cluster_mental_V"/>
+        </record>
+        <record id="item_mental_101" model="dasii.item">
+            <field name="item_no">101</field>
+            <field name="description">Dangles red ring by string</field>
+            <field name="scale">mental</field>
+            <field name="age_50">10.7</field>
+            <field name="age_3">8.2</field>
+            <field name="age_97">12.4</field>
+            <field name="cluster_id" ref="cluster_mental_V"/>
+        </record>
+        <record id="item_mental_102" model="dasii.item">
+            <field name="item_no">102</field>
+            <field name="description">3 or more cubes in cup</field>
+            <field name="scale">mental</field>
+            <field name="age_50">10.8</field>
+            <field name="age_3">9.5</field>
+            <field name="age_97">13.1</field>
+            <field name="cluster_id" ref="cluster_mental_VII"/>
+        </record>
+        <record id="item_mental_103" model="dasii.item">
+            <field name="item_no">103</field>
+            <field name="description">Imitates words</field>
+            <field name="scale">mental</field>
+            <field name="age_50">10.9</field>
+            <field name="age_3">9.8</field>
+            <field name="age_97">14.3</field>
+            <field name="cluster_id" ref="cluster_mental_V"/>
+        </record>
+        <record id="item_mental_104" model="dasii.item">
+            <field name="item_no">104</field>
+            <field name="description">Pushes car along</field>
+            <field name="scale">mental</field>
+            <field name="age_50">11.4</field>
+            <field name="age_3">9.8</field>
+            <field name="age_97">14.4</field>
+            <field name="cluster_id" ref="cluster_mental_IX"/>
+        </record>
+        <record id="item_mental_105" model="dasii.item">
+            <field name="item_no">105</field>
+            <field name="description">Uncovers square box</field>
+            <field name="scale">mental</field>
+            <field name="age_50">11.4</field>
+            <field name="age_3">9.8</field>
+            <field name="age_97">14.4</field>
+            <field name="cluster_id" ref="cluster_mental_III"/>
+        </record>
+        <record id="item_mental_106" model="dasii.item">
+            <field name="item_no">106</field>
+            <field name="description">Puts square beads in square box through</field>
+            <field name="scale">mental</field>
+            <field name="age_50">11.4</field>
+            <field name="age_3">9.8</field>
+            <field name="age_97">14.3</field>
+            <field name="cluster_id" ref="cluster_mental_VII"/>
+        </record>
+        <record id="item_mental_107" model="dasii.item">
+            <field name="item_no">107</field>
+            <field name="description">Pats whistle doll in imitation</field>
+            <field name="scale">mental</field>
+            <field name="age_50">11.6</field>
+            <field name="age_3">9.9</field>
+            <field name="age_97">15.4</field>
+            <field name="cluster_id" ref="cluster_mental_V"/>
+        </record>
+        <record id="item_mental_108" model="dasii.item">
+            <field name="item_no">108</field>
+            <field name="description">Places one peg repeatedly</field>
+            <field name="scale">mental</field>
+            <field name="age_50">11.8</field>
+            <field name="age_3">10.0</field>
+            <field name="age_97">15.4</field>
+            <field name="cluster_id" ref="cluster_mental_III"/>
+        </record>
+        <record id="item_mental_109" model="dasii.item">
+            <field name="item_no">109</field>
+            <field name="description">Removes pellet from bottle</field>
+            <field name="scale">mental</field>
+            <field name="age_50">12.4</field>
+            <field name="age_3">9.9</field>
+            <field name="age_97">15.5</field>
+            <field name="cluster_id" ref="cluster_mental_V"/>
+        </record>
+        <record id="item_mental_110" model="dasii.item">
+            <field name="item_no">110</field>
+            <field name="description">Spontaneous scribble</field>
+            <field name="scale">mental</field>
+            <field name="age_50">13.2</field>
+            <field name="age_3">10.0</field>
+            <field name="age_97">15.2</field>
+            <field name="cluster_id" ref="cluster_mental_IX"/>
+        </record>
+        <record id="item_mental_111" model="dasii.item">
+            <field name="item_no">111</field>
+            <field name="description">Uses gestures to make wants known</field>
+            <field name="scale">mental</field>
+            <field name="age_50">13.2</field>
+            <field name="age_3">11.0</field>
+            <field name="age_97">15.5</field>
+            <field name="cluster_id" ref="cluster_mental_VI"/>
+        </record>
+        <record id="item_mental_112" model="dasii.item">
+            <field name="item_no">112</field>
+            <field name="description">Builds tower of two cubes</field>
+            <field name="scale">mental</field>
+            <field name="age_50">13.2</field>
+            <field name="age_3">11.2</field>
+            <field name="age_97">16.1</field>
+            <field name="cluster_id" ref="cluster_mental_III"/>
+        </record>
+        <record id="item_mental_113" model="dasii.item">
+            <field name="item_no">113</field>
+            <field name="description">Closes round box</field>
+            <field name="scale">mental</field>
+            <field name="age_50">13.5</field>
+            <field name="age_3">10.9</field>
+            <field name="age_97">16.5</field>
+            <field name="cluster_id" ref="cluster_mental_III"/>
+        </record>
+        <record id="item_mental_114" model="dasii.item">
+            <field name="item_no">114</field>
+            <field name="description">Says TWO words</field>
+            <field name="scale">mental</field>
+            <field name="age_50">14.3</field>
+            <field name="age_3">11.2</field>
+            <field name="age_97">17.1</field>
+            <field name="cluster_id" ref="cluster_mental_VI"/>
+        </record>
+        <record id="item_mental_115" model="dasii.item">
+            <field name="item_no">115</field>
+            <field name="description">Shows shoes, or some other clothing of own</field>
+            <field name="scale">mental</field>
+            <field name="age_50">14.3</field>
+            <field name="age_3">11.2</field>
+            <field name="age_97">16.4</field>
+            <field name="cluster_id" ref="cluster_mental_VII"/>
+        </record>
+        <record id="item_mental_116" model="dasii.item">
+            <field name="item_no">116</field>
+            <field name="description">Adjusts one round block in Board for two</field>
+            <field name="scale">mental</field>
+            <field name="age_50">14.3</field>
+            <field name="age_3">11.2</field>
+            <field name="age_97">17.4</field>
+            <field name="cluster_id" ref="cluster_mental_VIII"/>
+        </record>
+        <record id="item_mental_117" model="dasii.item">
+            <field name="item_no">117</field>
+            <field name="description">Adjusts one round block in Board with 3</field>
+            <field name="scale">mental</field>
+            <field name="age_50">14.7</field>
+            <field name="age_3">13.2</field>
+            <field name="age_97">16.4</field>
+            <field name="cluster_id" ref="cluster_mental_VIII"/>
+        </record>
+        <record id="item_mental_118" model="dasii.item">
+            <field name="item_no">118</field>
+            <field name="description">Attains toy with stick</field>
+            <field name="scale">mental</field>
+            <field name="age_50">14.7</field>
+            <field name="age_3">13.1</field>
+            <field name="age_97">18.4</field>
+            <field name="cluster_id" ref="cluster_mental_VIII"/>
+        </record>
+        <record id="item_mental_119" model="dasii.item">
+            <field name="item_no">119</field>
+            <field name="description">Builds tower of three cubes</field>
+            <field name="scale">mental</field>
+            <field name="age_50">15.1</field>
+            <field name="age_3">13.4</field>
+            <field name="age_97">18.4</field>
+            <field name="cluster_id" ref="cluster_mental_III"/>
+        </record>
+        <record id="item_mental_120" model="dasii.item">
+            <field name="item_no">120</field>
+            <field name="description">Imitates stroke</field>
+            <field name="scale">mental</field>
+            <field name="age_50">15.7</field>
+            <field name="age_3">14.1</field>
+            <field name="age_97">20.4</field>
+            <field name="cluster_id" ref="cluster_mental_V"/>
+        </record>
+        <record id="item_mental_121" model="dasii.item">
+            <field name="item_no">121</field>
+            <field name="description">Pegs placed in 70 seconds</field>
+            <field name="scale">mental</field>
+            <field name="age_50">16.3</field>
+            <field name="age_3">14.2</field>
+            <field name="age_97">19.6</field>
+            <field name="cluster_id" ref="cluster_mental_X"/>
+        </record>
+        <record id="item_mental_122" model="dasii.item">
+            <field name="item_no">122</field>
+            <field name="description">Adjusts round block in Board with 3 shapes in</field>
+            <field name="scale">mental</field>
+            <field name="age_50">16.3</field>
+            <field name="age_3">14.1</field>
+            <field name="age_97">20.3</field>
+            <field name="cluster_id" ref="cluster_mental_VIII"/>
+        </record>
+        <record id="item_mental_123" model="dasii.item">
+            <field name="item_no">123</field>
+            <field name="description">Pegs placed in 42 seconds</field>
+            <field name="scale">mental</field>
+            <field name="age_50">16.7</field>
+            <field name="age_3">14.9</field>
+            <field name="age_97">20.1</field>
+            <field name="cluster_id" ref="cluster_mental_X"/>
+        </record>
+        <record id="item_mental_124" model="dasii.item">
+            <field name="item_no">124</field>
+            <field name="description">Follows directions – Doll</field>
+            <field name="scale">mental</field>
+            <field name="age_50">16.9</field>
+            <field name="age_3">15.0</field>
+            <field name="age_97">22.2</field>
+            <field name="cluster_id" ref="cluster_mental_VII"/>
+        </record>
+        <record id="item_mental_125" model="dasii.item">
+            <field name="item_no">125</field>
+            <field name="description">Adjusts two round blocks in Board for 2</field>
+            <field name="scale">mental</field>
+            <field name="age_50">17.3</field>
+            <field name="age_3">14.1</field>
+            <field name="age_97">20.3</field>
+            <field name="cluster_id" ref="cluster_mental_VIII"/>
+        </record>
+        <record id="item_mental_126" model="dasii.item">
+            <field name="item_no">126</field>
+            <field name="description">Uses words to make wants known</field>
+            <field name="scale">mental</field>
+            <field name="age_50">17.5</field>
+            <field name="age_3">14.2</field>
+            <field name="age_97">22.4</field>
+            <field name="cluster_id" ref="cluster_mental_VI"/>
+        </record>
+        <record id="item_mental_127" model="dasii.item">
+            <field name="item_no">127</field>
+            <field name="description">Points to body parts of doll</field>
+            <field name="scale">mental</field>
+            <field name="age_50">17.6</field>
+            <field name="age_3">16.0</field>
+            <field name="age_97">21.1</field>
+            <field name="cluster_id" ref="cluster_mental_VIII"/>
+        </record>
+        <record id="item_mental_128" model="dasii.item">
+            <field name="item_no">128</field>
+            <field name="description">Adjusts 2 round and 2 squares in BTSR</field>
+            <field name="scale">mental</field>
+            <field name="age_50">18.3</field>
+            <field name="age_3">16.1</field>
+            <field name="age_97">23.2</field>
+            <field name="cluster_id" ref="cluster_mental_VIII"/>
+        </record>
+        <record id="item_mental_129" model="dasii.item">
+            <field name="item_no">129</field>
+            <field name="description">Selects cup hiding the toy</field>
+            <field name="scale">mental</field>
+            <field name="age_50">19.0</field>
+            <field name="age_3">18.0</field>
+            <field name="age_97">23.5</field>
+            <field name="cluster_id" ref="cluster_mental_IV"/>
+        </record>
+        <record id="item_mental_130" model="dasii.item">
+            <field name="item_no">130</field>
+            <field name="description">Differentiates a scribble and a stroke</field>
+            <field name="scale">mental</field>
+            <field name="age_50">19.5</field>
+            <field name="age_3">18.0</field>
+            <field name="age_97">22.5</field>
+            <field name="cluster_id" ref="cluster_mental_IX"/>
+        </record>
+        <record id="item_mental_131" model="dasii.item">
+            <field name="item_no">131</field>
+            <field name="description">Names ONE object</field>
+            <field name="scale">mental</field>
+            <field name="age_50">19.8</field>
+            <field name="age_3">17.0</field>
+            <field name="age_97">23.5</field>
+            <field name="cluster_id" ref="cluster_mental_VII"/>
+        </record>
+        <record id="item_mental_132" model="dasii.item">
+            <field name="item_no">132</field>
+            <field name="description">Completes BSTL</field>
+            <field name="scale">mental</field>
+            <field name="age_50">19.8</field>
+            <field name="age_3">18.3</field>
+            <field name="age_97">23.5</field>
+            <field name="cluster_id" ref="cluster_mental_VIII"/>
+        </record>
+        <record id="item_mental_133" model="dasii.item">
+            <field name="item_no">133</field>
+            <field name="description">Adjusts six blocks in BTSR</field>
+            <field name="scale">mental</field>
+            <field name="age_50">19.9</field>
+            <field name="age_3">17.6</field>
+            <field name="age_97">23.5</field>
+            <field name="cluster_id" ref="cluster_mental_VIII"/>
+        </record>
+        <record id="item_mental_134" model="dasii.item">
+            <field name="item_no">134</field>
+            <field name="description">Discrimination between cup and plate out of</field>
+            <field name="scale">mental</field>
+            <field name="age_50">20.0</field>
+            <field name="age_3">18.9</field>
+            <field name="age_97">24.0</field>
+            <field name="cluster_id" ref="cluster_mental_IX"/>
+        </record>
+        <record id="item_mental_135" model="dasii.item">
+            <field name="item_no">135</field>
+            <field name="description">POINTS to three pictures</field>
+            <field name="scale">mental</field>
+            <field name="age_50">20.2</field>
+            <field name="age_3">18.9</field>
+            <field name="age_97">24.1</field>
+            <field name="cluster_id" ref="cluster_mental_VII"/>
+        </record>
+        <record id="item_mental_136" model="dasii.item">
+            <field name="item_no">136</field>
+            <field name="description">Pegs placed in 30 seconds</field>
+            <field name="scale">mental</field>
+            <field name="age_50">20.3</field>
+            <field name="age_3">18.9</field>
+            <field name="age_97">24.4</field>
+            <field name="cluster_id" ref="cluster_mental_X"/>
+        </record>
+        <record id="item_mental_137" model="dasii.item">
+            <field name="item_no">137</field>
+            <field name="description">Names one picture</field>
+            <field name="scale">mental</field>
+            <field name="age_50">21.5</field>
+            <field name="age_3">18.9</field>
+            <field name="age_97">24.3</field>
+            <field name="cluster_id" ref="cluster_mental_VII"/>
+        </record>
+        <record id="item_mental_138" model="dasii.item">
+            <field name="item_no">138</field>
+            <field name="description">Mends broken doll-marginally</field>
+            <field name="scale">mental</field>
+            <field name="age_50">21.5</field>
+            <field name="age_3">18.9</field>
+            <field name="age_97">24.4</field>
+            <field name="cluster_id" ref="cluster_mental_VIII"/>
+        </record>
+        <record id="item_mental_139" model="dasii.item">
+            <field name="item_no">139</field>
+            <field name="description">Discriminates cup, plate and box</field>
+            <field name="scale">mental</field>
+            <field name="age_50">21.8</field>
+            <field name="age_3">18.9</field>
+            <field name="age_97">24.3</field>
+            <field name="cluster_id" ref="cluster_mental_IX"/>
+        </record>
+        <record id="item_mental_140" model="dasii.item">
+            <field name="item_no">140</field>
+            <field name="description">Speaks sentence of two words</field>
+            <field name="scale">mental</field>
+            <field name="age_50">22.1</field>
+            <field name="age_3">19.6</field>
+            <field name="age_97">26.4</field>
+            <field name="cluster_id" ref="cluster_mental_VI"/>
+        </record>
+        <record id="item_mental_141" model="dasii.item">
+            <field name="item_no">141</field>
+            <field name="description">Names three pictures</field>
+            <field name="scale">mental</field>
+            <field name="age_50">22.3</field>
+            <field name="age_3">21.2</field>
+            <field name="age_97">27.1</field>
+            <field name="cluster_id" ref="cluster_mental_VII"/>
+        </record>
+        <record id="item_mental_142" model="dasii.item">
+            <field name="item_no">142</field>
+            <field name="description">Builds tower of five cubes</field>
+            <field name="scale">mental</field>
+            <field name="age_50">22.3</field>
+            <field name="age_3">18.9</field>
+            <field name="age_97">27.4</field>
+            <field name="cluster_id" ref="cluster_mental_III"/>
+        </record>
+        <record id="item_mental_143" model="dasii.item">
+            <field name="item_no">143</field>
+            <field name="description">Names two objects</field>
+            <field name="scale">mental</field>
+            <field name="age_50">22.5</field>
+            <field name="age_3">19.2</field>
+            <field name="age_97">25.4</field>
+            <field name="cluster_id" ref="cluster_mental_VII"/>
+        </record>
+        <record id="item_mental_144" model="dasii.item">
+            <field name="item_no">144</field>
+            <field name="description">Completes BTSR in 150 seconds</field>
+            <field name="scale">mental</field>
+            <field name="age_50">22.0</field>
+            <field name="age_3">19.2</field>
+            <field name="age_97">25.4</field>
+            <field name="cluster_id" ref="cluster_mental_X"/>
+        </record>
+        <record id="item_mental_145" model="dasii.item">
+            <field name="item_no">145</field>
+            <field name="description">Names watch at 4th picture card</field>
+            <field name="scale">mental</field>
+            <field name="age_50">23.0</field>
+            <field name="age_3">19.2</field>
+            <field name="age_97">26.5</field>
+            <field name="cluster_id" ref="cluster_mental_VIII"/>
+        </record>
+        <record id="item_mental_146" model="dasii.item">
+            <field name="item_no">146</field>
+            <field name="description">Understands two prepositions</field>
+            <field name="scale">mental</field>
+            <field name="age_50">23.1</field>
+            <field name="age_3">19.0</field>
+            <field name="age_97">25.5</field>
+            <field name="cluster_id" ref="cluster_mental_VIII"/>
+        </record>
+        <record id="item_mental_147" model="dasii.item">
+            <field name="item_no">147</field>
+            <field name="description">Points to five pictures</field>
+            <field name="scale">mental</field>
+            <field name="age_50">23.3</field>
+            <field name="age_3">19.0</field>
+            <field name="age_97">26.5</field>
+            <field name="cluster_id" ref="cluster_mental_VII"/>
+        </record>
+        <record id="item_mental_148" model="dasii.item">
+            <field name="item_no">148</field>
+            <field name="description">Names five objects</field>
+            <field name="scale">mental</field>
+            <field name="age_50">23.5</field>
+            <field name="age_3">19.4</field>
+            <field name="age_97">27.4</field>
+            <field name="cluster_id" ref="cluster_mental_VII"/>
+        </record>
+        <record id="item_mental_149" model="dasii.item">
+            <field name="item_no">149</field>
+            <field name="description">Train of cubes after model</field>
+            <field name="scale">mental</field>
+            <field name="age_50">23.5</field>
+            <field name="age_3">20.1</field>
+            <field name="age_97">26.1</field>
+            <field name="cluster_id" ref="cluster_mental_V"/>
+        </record>
+        <record id="item_mental_150" model="dasii.item">
+            <field name="item_no">150</field>
+            <field name="description">Completes BSTL in reversed position</field>
+            <field name="scale">mental</field>
+            <field name="age_50">24.0</field>
+            <field name="age_3">19.2</field>
+            <field name="age_97">27.4</field>
+            <field name="cluster_id" ref="cluster_mental_VIII"/>
+        </record>
+        <record id="item_mental_151" model="dasii.item">
+            <field name="item_no">151</field>
+            <field name="description">Folds paper (demonstration given)</field>
+            <field name="scale">mental</field>
+            <field name="age_50">24.0</field>
+            <field name="age_3">19.4</field>
+            <field name="age_97">29.3</field>
+            <field name="cluster_id" ref="cluster_mental_V"/>
+        </record>
+        <record id="item_mental_152" model="dasii.item">
+            <field name="item_no">152</field>
+            <field name="description">Imitates stroke-vertical and horizontal</field>
+            <field name="scale">mental</field>
+            <field name="age_50">24.1</field>
+            <field name="age_3">19.9</field>
+            <field name="age_97">29.3</field>
+            <field name="cluster_id" ref="cluster_mental_IX"/>
+        </record>
+        <record id="item_mental_153" model="dasii.item">
+            <field name="item_no">153</field>
+            <field name="description">Name watch at second picture</field>
+            <field name="scale">mental</field>
+            <field name="age_50">24.2</field>
+            <field name="age_3">19.4</field>
+            <field name="age_97">29.3</field>
+            <field name="cluster_id" ref="cluster_mental_VIII"/>
+        </record>
+        <record id="item_mental_154" model="dasii.item">
+            <field name="item_no">154</field>
+            <field name="description">Completes BTSR in 90 seconds</field>
+            <field name="scale">mental</field>
+            <field name="age_50">24.4</field>
+            <field name="age_3">20.9</field>
+            <field name="age_97">27.1</field>
+            <field name="cluster_id" ref="cluster_mental_X"/>
+        </record>
+        <record id="item_mental_155" model="dasii.item">
+            <field name="item_no">155</field>
+            <field name="description">Completes BTSR in 60 seconds</field>
+            <field name="scale">mental</field>
+            <field name="age_50">24.9</field>
+            <field name="age_3">21.0</field>
+            <field name="age_97">29.3</field>
+            <field name="cluster_id" ref="cluster_mental_X"/>
+        </record>
+        <record id="item_mental_156" model="dasii.item">
+            <field name="item_no">156</field>
+            <field name="description">Mends broken doll approximately</field>
+            <field name="scale">mental</field>
+            <field name="age_50">25.4</field>
+            <field name="age_3">22.0</field>
+            <field name="age_97">27.0</field>
+            <field name="cluster_id" ref="cluster_mental_VIII"/>
+        </record>
+        <record id="item_mental_157" model="dasii.item">
+            <field name="item_no">157</field>
+            <field name="description">Points to seven pictures</field>
+            <field name="scale">mental</field>
+            <field name="age_50">25.8</field>
+            <field name="age_3">20.9</field>
+            <field name="age_97">30.7</field>
+            <field name="cluster_id" ref="cluster_mental_VII"/>
+        </record>
+        <record id="item_mental_158" model="dasii.item">
+            <field name="item_no">158</field>
+            <field name="description">Concept of ‘1’</field>
+            <field name="scale">mental</field>
+            <field name="age_50">25.8</field>
+            <field name="age_3">21.0</field>
+            <field name="age_97">29.3</field>
+            <field name="cluster_id" ref="cluster_mental_VII"/>
+        </record>
+        <record id="item_mental_159" model="dasii.item">
+            <field name="item_no">159</field>
+            <field name="description">Pegs placed in 22 seconds</field>
+            <field name="scale">mental</field>
+            <field name="age_50">26.0</field>
+            <field name="age_3">21.2</field>
+            <field name="age_97">28.5</field>
+            <field name="cluster_id" ref="cluster_mental_X"/>
+        </record>
+        <record id="item_mental_160" model="dasii.item">
+            <field name="item_no">160</field>
+            <field name="description">Understands 3 prepositions</field>
+            <field name="scale">mental</field>
+            <field name="age_50">26.5</field>
+            <field name="age_3">23.1</field>
+            <field name="age_97">30.4</field>
+            <field name="cluster_id" ref="cluster_mental_VIII"/>
+        </record>
+        <record id="item_mental_161" model="dasii.item">
+            <field name="item_no">161</field>
+            <field name="description">Names five pictures</field>
+            <field name="scale">mental</field>
+            <field name="age_50">26.6</field>
+            <field name="age_3">23.0</field>
+            <field name="age_97">30.5</field>
+            <field name="cluster_id" ref="cluster_mental_VII"/>
+        </record>
+        <record id="item_mental_162" model="dasii.item">
+            <field name="item_no">162</field>
+            <field name="description">Builds tower of eight cubes</field>
+            <field name="scale">mental</field>
+            <field name="age_50">27.2</field>
+            <field name="age_3">21.0</field>
+            <field name="age_97">30.7</field>
+            <field name="cluster_id" ref="cluster_mental_III"/>
+        </record>
+        <record id="item_mental_163" model="dasii.item">
+            <field name="item_no">163</field>
+            <field name="description">Mends broken doll – Exactly</field>
+            <field name="scale">mental</field>
+            <field name="age_50">28.3</field>
+            <field name="age_3">23.9</field>
+            <field name="age_97">30.7</field>
+            <field name="cluster_id" ref="cluster_mental_VIII"/>
+        </record>
+    </data>
+</odoo>

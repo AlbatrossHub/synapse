@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_dasii_assessment,dasii.assessment,model_dasii_assessment,base.group_user,1,1,1,1
+access_dasii_assessment_line,dasii.assessment.line,model_dasii_assessment_line,base.group_user,1,1,1,1
+access_dasii_cluster,dasii.cluster,model_dasii_cluster,base.group_user,1,1,1,1
+access_dasii_cluster_score,dasii.cluster.score,model_dasii_cluster_score,base.group_user,1,1,1,1
+access_dasii_item,dasii.item,model_dasii_item,base.group_user,1,1,1,1

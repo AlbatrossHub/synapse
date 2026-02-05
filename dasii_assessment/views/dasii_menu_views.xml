@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Actions -->
+    <record id="action_dasii_assessment" model="ir.actions.act_window">
+        <field name="name">Assessments</field>
+        <field name="res_model">dasii.assessment</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <record id="action_dasii_item" model="ir.actions.act_window">
+        <field name="name">Assessment Items</field>
+        <field name="res_model">dasii.item</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <record id="action_dasii_cluster" model="ir.actions.act_window">
+        <field name="name">Clusters</field>
+        <field name="res_model">dasii.cluster</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Menus -->
+    <menuitem id="menu_dasii_root" name="DASII Assessment" web_icon="dasii_assessment,static/description/icon.png" sequence="50"/>
+    
+    <menuitem id="menu_dasii_assessment" name="Assessments" parent="menu_dasii_root" action="action_dasii_assessment" sequence="10"/>
+    
+    <menuitem id="menu_dasii_configuration" name="Configuration" parent="menu_dasii_root" sequence="100"/>
+    <menuitem id="menu_dasii_item" name="Items" parent="menu_dasii_configuration" action="action_dasii_item" sequence="10"/>
+    <menuitem id="menu_dasii_cluster" name="Clusters" parent="menu_dasii_configuration" action="action_dasii_cluster" sequence="20"/>
+</odoo>

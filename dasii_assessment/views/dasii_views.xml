@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- DASII Assessment Form View -->
+    <record id="view_dasii_assessment_form" model="ir.ui.view">
+        <field name="name">dasii.assessment.form</field>
+        <field name="model">dasii.assessment</field>
+        <field name="arch" type="xml">
+            <form string="DASII Assessment">
+                <header>
+                    <button name="action_load_items" string="Load Items" type="object" class="oe_highlight"/>
+                    <button name="action_calculate_score" string="Calculate Score" type="object" class="oe_highlight"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="partner_id" placeholder="Patient"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="assessment_date"/>
+                            <field name="date_of_birth"/>
+                            <field name="age_months"/>
+                        </group>
+                    </group>
+                    
+                    <notebook>
+                        <page string="Assessment" name="assessment_lines">
+                            <field name="line_ids">
+                                <list editable="bottom" decoration-info="item_scale == 'motor'" decoration-warning="item_scale == 'mental'" limit="300" default_order="item_scale desc, item_no asc">
+                                    <field name="item_scale" string="Category" readonly="1" optional="show"/>
+                                    <field name="item_no" readonly="1"/>
+                                    <field name="item_description"/>
+                                    <field name="status" widget="radio" options="{'horizontal': true}"/>
+                                    <field name="comments"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Results" name="results">
+                            <field name="cluster_score_ids" readonly="1">
+                                <list>
+                                    <field name="cluster_scale"/>
+                                    <field name="cluster_name"/>
+                                    <field name="total_items"/>
+                                    <field name="yes_count"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <!-- DASII Assessment List View -->
+    <record id="view_dasii_assessment_tree" model="ir.ui.view">
+        <field name="name">dasii.assessment.list</field>
+        <field name="model">dasii.assessment</field>
+        <field name="arch" type="xml">
+            <list string="Assessments">
+                <field name="partner_id"/>
+                <field name="assessment_date"/>
+                <field name="age_months"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- DASII Item List View -->
+    <record id="view_dasii_item_tree" model="ir.ui.view">
+        <field name="name">dasii.item.list</field>
+        <field name="model">dasii.item</field>
+        <field name="arch" type="xml">
+            <list string="DASII Items">
+                <field name="scale"/>
+                <field name="item_no"/>
+                <field name="description"/>
+                <field name="cluster_id"/>
+                <field name="age_50"/>
+            </list>
+        </field>
+    </record>
+    
+    <!-- DASII Cluster List View -->
+    <record id="view_dasii_cluster_tree" model="ir.ui.view">
+        <field name="name">dasii.cluster.list</field>
+        <field name="model">dasii.cluster</field>
+        <field name="arch" type="xml">
+            <list string="DASII Clusters">
+                <field name="scale"/>
+                <field name="code"/>
+                <field name="name"/>
+                <field name="sequence"/>
+            </list>
+        </field>
+    </record>
+</odoo>
