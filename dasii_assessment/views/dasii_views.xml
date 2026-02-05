@@ -29,7 +29,13 @@
                                     <field name="item_scale" string="Category" readonly="1" optional="show"/>
                                     <field name="item_no" readonly="1"/>
                                     <field name="item_description"/>
-                                    <field name="status" widget="radio" options="{'horizontal': true}"/>
+                                    <!-- Status Indicator -->
+                                    <field name="status" widget="badge" decoration-success="status == 'yes'" decoration-danger="status == 'no'" readonly="1"/>
+                                    
+                                    <!-- Action Buttons -->
+                                    <button name="action_mark_yes" type="object" icon="fa-check" title="Pass" class="btn-success"/>
+                                    <button name="action_mark_no" type="object" icon="fa-times" title="Fail" class="btn-danger"/>
+                                    
                                     <field name="comments"/>
                                 </list>
                             </field>

@@ -164,9 +164,16 @@ class DasiiAssessmentLine(models.Model):
     item_description = fields.Text(related='item_id.description', string='Description', readonly=True)
     item_scale = fields.Selection(related='item_id.scale', string='Scale', store=True, readonly=True)
     
+    
     status = fields.Selection([
         ('yes', 'Yes'),
         ('no', 'No'),
     ], string='Status')
     
     comments = fields.Text()
+
+    def action_mark_yes(self):
+        self.status = 'yes'
+
+    def action_mark_no(self):
+        self.status = 'no'
