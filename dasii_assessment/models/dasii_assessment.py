@@ -16,6 +16,16 @@ class DasiiAssessment(models.Model):
     line_ids = fields.One2many('dasii.assessment.line', 'assessment_id', string='Assessment Lines')
     cluster_score_ids = fields.One2many('dasii.cluster.score', 'assessment_id', string='Cluster Scores')
     
+    # Scoring Fields
+    motor_raw_score = fields.Integer(string='Motor Raw Score', readonly=True)
+    mental_raw_score = fields.Integer(string='Mental Raw Score', readonly=True)
+    
+    motor_da = fields.Float(string='Motor DA (Months)', readonly=True, help="Developmental Age based on Total Score")
+    mental_da = fields.Float(string='Mental DA (Months)', readonly=True, help="Developmental Age based on Total Score")
+    
+    motor_dq = fields.Float(string='Motor DQ', readonly=True, help="(DA / Chronological Age) * 100")
+    mental_dq = fields.Float(string='Mental DQ', readonly=True, help="(DA / Chronological Age) * 100")
+    
     @api.depends('date_of_birth', 'assessment_date')
     def _compute_age(self):
         for record in self:
@@ -57,9 +67,38 @@ class DasiiAssessment(models.Model):
         if lines_to_create:
             self.env['dasii.assessment.line'].create(lines_to_create)
 
+    def _calculate_scale_score(self, scale):
+        """
+        Calculates score for a specific scale (motor/mental).
+        Logic:
+        1. Sort lines by Item No.
+        2. Iterate: Count YES. 
+        3. Stop if 10 consecutive NOs.
+        4. Return total YES count found before stop.
+        """
+        self.ensure_one()
+        lines = self.line_ids.filtered(lambda l: l.item_scale == scale).sorted('item_no')
+        
+        raw_score = 0
+        consecutive_no = 0
+        
+        for line in lines:
+            if line.status == 'yes':
+                raw_score += 1
+                consecutive_no = 0 # Reset on Yes
+            elif line.status == 'no':
+                consecutive_no += 1
+            
+            # Stop condition
+            if consecutive_no >= 10:
+                break
+                
+        return raw_score
+
     def action_calculate_score(self):
-        """Calculates the cluster scores based on PASS (Yes) answers."""
+        """Calculates the cluster scores and Final DQ based on PASS (Yes) answers."""
         for record in self:
+            # 1. Cluster Scores
             # Clear existing scores
             record.cluster_score_ids.unlink()
             
@@ -72,6 +111,9 @@ class DasiiAssessment(models.Model):
                 cluster_lines = record.line_ids.filtered(lambda l: l.item_id.cluster_id == cluster)
                 
                 total_items = len(cluster_lines)
+                # Note: Cluster score is simple YES count, doesn't mention ceiling rule 
+                # but usually cluster count is derived from effective items. 
+                # For now keeping it simple count as originally requested.
                 yes_count = len(cluster_lines.filtered(lambda l: l.status == 'yes'))
                 
                 if total_items > 0:
@@ -84,6 +126,29 @@ class DasiiAssessment(models.Model):
             
             if score_vals:
                 self.env['dasii.cluster.score'].create(score_vals)
+
+            # 2. Final DQ Scoring
+            motor_score = record._calculate_scale_score('motor')
+            mental_score = record._calculate_scale_score('mental')
+            
+            record.motor_raw_score = motor_score
+            record.mental_raw_score = mental_score
+            
+            # Determine DA (Developmental Age)
+            # Find item with item_no == raw_score
+            motor_da_item = self.env['dasii.item'].search([('scale', '=', 'motor'), ('item_no', '=', motor_score)], limit=1)
+            mental_da_item = self.env['dasii.item'].search([('scale', '=', 'mental'), ('item_no', '=', mental_score)], limit=1)
+            
+            record.motor_da = motor_da_item.age_50 if motor_da_item else 0.0
+            record.mental_da = mental_da_item.age_50 if mental_da_item else 0.0
+            
+            # Calculate DQ
+            if record.age_months > 0:
+                record.motor_dq = (record.motor_da / record.age_months) * 100
+                record.mental_dq = (record.mental_da / record.age_months) * 100
+            else:
+                record.motor_dq = 0.0
+                record.mental_dq = 0.0
 
 
 class DasiiAssessmentLine(models.Model):

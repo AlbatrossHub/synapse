@@ -34,6 +34,20 @@
                                 </list>
                             </field>
                         </page>
+                        <page string="Age Results" name="age_results">
+                            <group col="4">
+                                <group string="Motor Development">
+                                    <field name="motor_raw_score" string="Total Score"/>
+                                    <field name="motor_da"/>
+                                    <field name="motor_dq"/>
+                                </group>
+                                <group string="Mental Development">
+                                    <field name="mental_raw_score" string="Total Score"/>
+                                    <field name="mental_da"/>
+                                    <field name="mental_dq"/>
+                                </group>
+                            </group>
+                        </page>
                         <page string="Results" name="results">
                             <field name="cluster_score_ids" readonly="1">
                                 <list>
