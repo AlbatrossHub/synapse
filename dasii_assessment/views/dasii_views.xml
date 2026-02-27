@@ -7,6 +7,7 @@
         <field name="arch" type="xml">
             <form string="DASII Assessment">
                 <header>
+                    <button name="%(action_dasii_age_correction)d" string="Calculate Corrected Age" type="action" class="oe_highlight"/>
                     <button name="action_load_items" string="Load Items" type="object" class="oe_highlight"/>
                     <button name="action_calculate_score" string="Calculate Score" type="object" class="oe_highlight"/>
                 </header>
@@ -19,6 +20,10 @@
                             <field name="assessment_date"/>
                             <field name="date_of_birth"/>
                             <field name="age_months"/>
+                        </group>
+                        <group>
+                            <field name="is_premature"/>
+                            <field name="corrected_age_months" invisible="not is_premature"/>
                         </group>
                     </group>
                     

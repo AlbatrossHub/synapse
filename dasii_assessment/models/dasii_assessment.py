@@ -26,6 +26,10 @@ class DasiiAssessment(models.Model):
     motor_dq = fields.Float(string='Motor DQ', readonly=True, help="(DA / Chronological Age) * 100")
     mental_dq = fields.Float(string='Mental DQ', readonly=True, help="(DA / Chronological Age) * 100")
     
+    # Corrected Age Fields
+    is_premature = fields.Boolean(string='Is Premature?', default=False, readonly=True, tracking=True)
+    corrected_age_months = fields.Float(string='Corrected Age (Months)', readonly=True, tracking=True)
+    
     @api.depends('date_of_birth', 'assessment_date')
     def _compute_age(self):
         for record in self:
@@ -143,9 +147,12 @@ class DasiiAssessment(models.Model):
             record.mental_da = mental_da_item.age_50 if mental_da_item else 0.0
             
             # Calculate DQ
-            if record.age_months > 0:
-                record.motor_dq = (record.motor_da / record.age_months) * 100
-                record.mental_dq = (record.mental_da / record.age_months) * 100
+            # Use corrected age if available and greater than 0
+            effective_age = record.corrected_age_months if record.is_premature and record.corrected_age_months > 0 else record.age_months
+            
+            if effective_age > 0:
+                record.motor_dq = (record.motor_da / effective_age) * 100
+                record.mental_dq = (record.mental_da / effective_age) * 100
             else:
                 record.motor_dq = 0.0
                 record.mental_dq = 0.0

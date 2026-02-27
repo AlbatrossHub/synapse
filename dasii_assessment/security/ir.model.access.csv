@@ -4,3 +4,4 @@ access_dasii_assessment_line,dasii.assessment.line,model_dasii_assessment_line,b
 access_dasii_cluster,dasii.cluster,model_dasii_cluster,base.group_user,1,1,1,1
 access_dasii_cluster_score,dasii.cluster.score,model_dasii_cluster_score,base.group_user,1,1,1,1
 access_dasii_item,dasii.item,model_dasii_item,base.group_user,1,1,1,1
+access_dasii_age_correction_wizard,dasii.age.correction.wizard,model_dasii_age_correction_wizard,base.group_user,1,1,1,1

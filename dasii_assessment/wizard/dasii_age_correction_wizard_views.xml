@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_dasii_age_correction_wizard_form" model="ir.ui.view">
+        <field name="name">dasii.age.correction.wizard.form</field>
+        <field name="model">dasii.age.correction.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Calculate Corrected Age">
+                <group>
+                    <field name="assessment_id" invisible="1"/>
+                    <field name="dob" readonly="1"/>
+                    <field name="calculate_at_date"/>
+                    <field name="gestation_basis" widget="radio"/>
+                    <field name="edd_date" invisible="gestation_basis != 'edd'" required="gestation_basis == 'edd'"/>
+                    <field name="ga_weeks" invisible="gestation_basis != 'ga'" required="gestation_basis == 'ga'"/>
+                </group>
+                <footer>
+                    <button name="action_calculate" string="Calculate &amp; Apply" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_dasii_age_correction" model="ir.actions.act_window">
+        <field name="name">Calculate Corrected Age</field>
+        <field name="res_model">dasii.age.correction.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>
