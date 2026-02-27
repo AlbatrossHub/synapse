@@ -157,6 +157,20 @@ class DasiiAssessment(models.Model):
                 record.motor_dq = 0.0
                 record.mental_dq = 0.0
 
+    def action_bulk_mark_yes(self):
+        """Marks selected lines as Yes and unchecks them."""
+        for record in self:
+            selected_lines = record.line_ids.filtered(lambda l: l.is_selected)
+            if selected_lines:
+                selected_lines.write({'status': 'yes', 'is_selected': False})
+
+    def action_bulk_mark_no(self):
+        """Marks selected lines as No and unchecks them."""
+        for record in self:
+            selected_lines = record.line_ids.filtered(lambda l: l.is_selected)
+            if selected_lines:
+                selected_lines.write({'status': 'no', 'is_selected': False})
+
 
 class DasiiAssessmentLine(models.Model):
     _name = 'dasii.assessment.line'
@@ -171,7 +185,8 @@ class DasiiAssessmentLine(models.Model):
     item_description = fields.Text(related='item_id.description', string='Description', readonly=True)
     item_scale = fields.Selection(related='item_id.scale', string='Scale', store=True, readonly=True)
     
-    
+    is_selected = fields.Boolean(string='Select')
+
     status = fields.Selection([
         ('yes', 'Yes'),
         ('no', 'No'),

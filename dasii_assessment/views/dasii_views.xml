@@ -7,6 +7,8 @@
         <field name="arch" type="xml">
             <form string="DASII Assessment">
                 <header>
+                    <button name="action_bulk_mark_yes" string="Pass Selected" type="object" class="btn-success"/>
+                    <button name="action_bulk_mark_no" string="Fail Selected" type="object" class="btn-danger"/>
                     <button name="%(action_dasii_age_correction)d" string="Calculate Corrected Age" type="action" class="oe_highlight"/>
                     <button name="action_load_items" string="Load Items" type="object" class="oe_highlight"/>
                     <button name="action_calculate_score" string="Calculate Score" type="object" class="oe_highlight"/>
@@ -31,6 +33,7 @@
                         <page string="Assessment" name="assessment_lines">
                             <field name="line_ids">
                                 <list editable="bottom" decoration-info="item_scale == 'motor'" decoration-warning="item_scale == 'mental'" limit="300" default_order="item_scale desc, item_no asc">
+                                    <field name="is_selected" widget="boolean_toggle"/>
                                     <field name="item_scale" string="Category" readonly="1" optional="show"/>
                                     <field name="item_no" readonly="1"/>
                                     <field name="item_description"/>
