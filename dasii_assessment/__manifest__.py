@@ -11,6 +11,7 @@
         'wizard/dasii_age_correction_wizard_views.xml',
         'views/dasii_views.xml',
         'views/dasii_menu_views.xml',
+        'report/dasii_assessment_report.xml',
     ],
     'installable': True,
     'application': True,
