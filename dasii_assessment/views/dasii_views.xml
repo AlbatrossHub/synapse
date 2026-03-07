@@ -42,7 +42,10 @@
                                     
                                     <!-- Action Buttons -->
                                     <button name="action_mark_yes" type="object" icon="fa-check" title="Pass" class="btn-success"/>
+                                    <button name="action_mark_above_yes" type="object" icon="fa-angle-double-up" title="Pass all up to here" class="btn-success"/>
+                                    
                                     <button name="action_mark_no" type="object" icon="fa-times" title="Fail" class="btn-danger"/>
+                                    <button name="action_mark_above_no" type="object" icon="fa-angle-double-up" title="Fail all up to here" class="btn-danger"/>
                                     
                                     <field name="comments"/>
                                 </list>

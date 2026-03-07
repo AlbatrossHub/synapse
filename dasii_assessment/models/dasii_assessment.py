@@ -199,3 +199,19 @@ class DasiiAssessmentLine(models.Model):
 
     def action_mark_no(self):
         self.status = 'no'
+
+    def action_mark_above_yes(self):
+        """Marks current line and all previous lines in same scale as Yes."""
+        for record in self:
+            lines_to_update = record.assessment_id.line_ids.filtered(
+                lambda l: l.item_scale == record.item_scale and l.item_no <= record.item_no
+            )
+            lines_to_update.write({'status': 'yes'})
+
+    def action_mark_above_no(self):
+        """Marks current line and all previous lines in same scale as No."""
+        for record in self:
+            lines_to_update = record.assessment_id.line_ids.filtered(
+                lambda l: l.item_scale == record.item_scale and l.item_no <= record.item_no
+            )
+            lines_to_update.write({'status': 'no'})
